@@ -9,6 +9,8 @@ return function(Title, Desc, Parent, Hover, Config)
 
 	Config = typeof(Config) == "table" and Config or {}
 
+	Element.Callback = Config.Callback or function() end
+
 	Element.TitleLabel = New("TextLabel", {
 		FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Medium, Enum.FontStyle.Normal),
 		Text = Title,

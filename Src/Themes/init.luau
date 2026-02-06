@@ -11,6 +11,7 @@ local Themes = {
 		"Amethyst",
 		"Amethyst Dark",
 		"Rose",
+		"Amberfall",
 		"Yaru",
 		"United Ubuntu",
 		"Elementary",
