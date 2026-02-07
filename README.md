@@ -1,7 +1,9 @@
-# Fluent Renewed
+# Booga Fluent Renewed
 
 ![Fluent Renewed Title](Assets/darkmode.png#gh-dark-mode-only)
 ![Fluent Renewed Title](Assets/darkmode.png#gh-light-mode-only)
+
+NOT made to be used by anyone else more than booga, it's made for my specific needs and only meant for my use.
 
 ## ⚡ Features
 
