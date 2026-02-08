@@ -140,7 +140,7 @@ function Creator.UpdateTheme(RegistryIndex: Instance?)
 				Object.Object[Property] = Creator.GetThemeProperty(ColorIdx)
 			end
 		end
-	end	
+	end
 
 	for Idx: number, Motor in next, Creator.TransparencyMotors do
 		if Idx % 200 == 0 then

@@ -16,6 +16,7 @@ local Themes = {
 		"VerdantGlass",
 		"MidnightPrism",
 		"FrozenAurora",
+		"OpalineHalo",
 		"Yaru",
 		"United Ubuntu",
 		"Elementary",
