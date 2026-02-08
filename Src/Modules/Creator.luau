@@ -116,7 +116,7 @@ function Creator.UpdateTheme(RegistryIndex: Instance?)
 		for Property, ColorIdx in next, Creator.Registry[RegistryIndex].Properties do
 			Count += 1
 
-			if Count % 135 == 0 then
+			if Count % 200 == 0 then
 				task.wait()
 			end
 
@@ -126,14 +126,14 @@ function Creator.UpdateTheme(RegistryIndex: Instance?)
 		for _, Object in next, Creator.Registry do
 			Count += 1
 
-			if Count % 135 == 0 then
+			if Count % 200 == 0 then
 				task.wait()
 			end
 
 			for Property, ColorIdx in next, Object.Properties do
 				Count += 1
 
-				if Count % 135 == 0 then
+				if Count % 200 == 0 then
 					task.wait()
 				end
 
@@ -143,7 +143,7 @@ function Creator.UpdateTheme(RegistryIndex: Instance?)
 	end	
 
 	for Idx: number, Motor in next, Creator.TransparencyMotors do
-		if Idx % 135 == 0 then
+		if Idx % 200 == 0 then
 			task.wait()
 		end
 
