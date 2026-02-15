@@ -106,11 +106,40 @@ return function(props)
 		}),
 	})
 
-	local Blur = AcrylicBlur()
-	Blur.Frame.Parent = AcrylicPaint.Frame
-	AcrylicPaint.Model = Blur.Model
-	AcrylicPaint.AddParent = Blur.AddParent
-	AcrylicPaint.SetVisibility = Blur.SetVisibility
+	local Blur
+	local Parent
+
+	local function ensureBlur()
+		if Blur then
+			return Blur
+		end
+
+		Blur = AcrylicBlur()
+		Blur.Frame.Parent = AcrylicPaint.Frame
+		AcrylicPaint.Model = Blur.Model
+
+		if Parent then
+			Blur.AddParent(Parent)
+		end
+
+		return Blur
+	end
+
+	AcrylicPaint.AddParent = function(Value)
+		Parent = Value
+
+		if Blur then
+			Blur.AddParent(Value)
+		end
+	end
+
+	AcrylicPaint.SetVisibility = function(Value)
+		if Value then
+			ensureBlur().SetVisibility(Value)
+		elseif Blur then
+			Blur.SetVisibility(Value)
+		end
+	end
 
 	return AcrylicPaint
 end

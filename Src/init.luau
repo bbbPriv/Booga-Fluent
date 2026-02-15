@@ -402,9 +402,7 @@ function Library:ToggleAcrylic(Value: boolean)
 	if Library.CreatedWindow then
 		Library.UseAcrylic = Value
 		Library.Acrylic = Value
-		if Library.CreatedWindow.AcrylicPaint.Model then
-			Library.CreatedWindow.AcrylicPaint.Model.Transparency = Value and 0.98 or 1
-		end
+		Library.CreatedWindow.AcrylicPaint.SetVisibility(Value)
 		if Library.AcrylicSupported then
 			if Value then
 				Acrylic.Enable()

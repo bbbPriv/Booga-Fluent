@@ -157,6 +157,8 @@ function Notification:New(Config)
 		NewNotification.Root,
 	})
 
+	NewNotification.AcrylicPaint.SetVisibility(require(Root).Acrylic == true)
+
 	local RootMotor = Flipper.GroupMotor.new({
 		Scale = 1,
 		Offset = 60,
