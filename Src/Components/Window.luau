@@ -24,6 +24,7 @@ return function(Config)
 	assert(typeof(Config.Mobile.Size) == "UDim2", "Mobile Config key 'Size' must be a UDim2!")
 	
 	local Window = {
+		CreatedAt = tick(),
 		Minimized = false,
 		OnMinimized = Signal.new(),
 		PostMinimized = Signal.new(),
