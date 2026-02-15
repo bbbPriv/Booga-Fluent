@@ -2,6 +2,7 @@ Distribution
 Packages
 sourcemap.json
 wally.lock
+Bundle.bat
 
 .vscode/*.d.luau
 Assets/Fonts/Touche

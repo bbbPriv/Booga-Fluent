@@ -663,75 +663,75 @@ local function ah()local function b(c)if c:IsA'DepthOfFieldEffect'then ag[c]={en
 game:GetService'Lighting':GetChildren()do b(d)end if game:GetService'Workspace'.CurrentCamera then for c,d in next,game:
 GetService'Workspace'.CurrentCamera:GetChildren()do b(d)end end end ah()ae.Enable()end return ae end)()end,[24]=function
 ()local aa,ab,ac=a(24)local ad return(function(...)local ae=ab.Parent.Parent.Parent local af,ag,ah,b=ac(ae.Modules.
-Creator),ac(ab.Parent.CreateAcrylic),unpack(ac(ab.Parent.Utils))local c=Instance.new('Folder',game:GetService'Workspace'
-.CurrentCamera)local function d(e)local f={}e=e or 0.001 local g,h={topLeft=Vector2.new(),topRight=Vector2.new(),
-bottomRight=Vector2.new()},ag()local i=h:FindFirstChildWhichIsA'SpecialMesh'h.Parent=c local function j(k,l)g.topLeft=l
-g.topRight=l+Vector2.new(k.X,0)g.bottomRight=l+k end local function k()local l=game:GetService'Workspace'.CurrentCamera
-local m,n,o,p=if l then l.CFrame else CFrame.identity,g.topLeft,g.topRight,g.bottomRight local q,r,s=ah(n,e),ah(o,e),ah(
-p,e)local t,u=(r-q).Magnitude,(r-s).Magnitude h.CFrame=CFrame.fromMatrix((q+s)/2,m.XVector,m.YVector,m.ZVector)if i then
-i.Scale=Vector3.new(t,u,0)end end local function l(m)local n=b()local o,p=m.AbsoluteSize-Vector2.new(n,n),m.
-AbsolutePosition+Vector2.new(n/2,n/2)j(o,p)task.spawn(k)end local function m()local n=game:GetService'Workspace'.
-CurrentCamera if not n then return end f[#f+1]=n:GetPropertyChangedSignal'CFrame':Connect(k)f[#f+1]=n:
-GetPropertyChangedSignal'ViewportSize':Connect(k)f[#f+1]=n:GetPropertyChangedSignal'FieldOfView':Connect(k)task.spawn(k)
-end h.Destroying:Connect(function()for n,o in f do pcall(function()o:Disconnect()end)end end)m()return l,h end return
-function(e)local f,g,h={},d(e)local i=af.New('Frame',{BackgroundTransparency=1,Size=UDim2.fromScale(1,1)})af.AddSignal(i
-:GetPropertyChangedSignal'AbsolutePosition',function()g(i)end)af.AddSignal(i:GetPropertyChangedSignal'AbsoluteSize',
-function()g(i)end)f.AddParent=function(j)af.AddSignal(j:GetPropertyChangedSignal'Visible',function()f.SetVisibility(j.
-Visible)end)end f.SetVisibility=function(j)h.Transparency=j and 0.98 or 1 end f.Frame=i f.Model=h return f end end)()end
-,[25]=function()local aa,ab,ac=a(25)local ad return(function(...)local ae=ab.Parent.Parent.Parent local af,ag=ac(ae.
-Modules.Creator),ac(ab.Parent.AcrylicBlur)local ah=af.New return function(b)local c={}c.Frame=ah('Frame',{Size=UDim2.
-fromScale(1,1),BackgroundTransparency=0.9,BackgroundColor3=Color3.fromRGB(255,255,255),BorderSizePixel=0},{ah(
-'ImageLabel',{Image='rbxassetid://8992230677',ScaleType='Slice',SliceCenter=Rect.new(Vector2.new(99,99),Vector2.new(99,
-99)),AnchorPoint=Vector2.new(0.5,0.5),Size=UDim2.new(1,120,1,116),Position=UDim2.new(0.5,0,0.5,0),BackgroundTransparency
-=1,ImageColor3=Color3.fromRGB(0,0,0),ImageTransparency=0.7}),ah('UICorner',{CornerRadius=UDim.new(0,8)}),ah('Frame',{
-BackgroundTransparency=0.45,Size=UDim2.fromScale(1,1),Name='Background',ThemeTag={BackgroundColor3='AcrylicMain'}},{ah(
-'UICorner',{CornerRadius=UDim.new(0,8)})}),ah('Frame',{BackgroundColor3=Color3.fromRGB(255,255,255),
-BackgroundTransparency=0.4,Size=UDim2.fromScale(1,1)},{ah('UICorner',{CornerRadius=UDim.new(0,8)}),ah('UIGradient',{
-Rotation=90,ThemeTag={Color='AcrylicGradient'}})}),ah('ImageLabel',{Image='rbxassetid://9968344105',ImageTransparency=
-0.98,ScaleType=Enum.ScaleType.Tile,TileSize=UDim2.new(0,128,0,128),Size=UDim2.fromScale(1,1),BackgroundTransparency=1},{
-ah('UICorner',{CornerRadius=UDim.new(0,8)})}),ah('ImageLabel',{Image='rbxassetid://9968344227',ImageTransparency=0.9,
-ScaleType=Enum.ScaleType.Tile,TileSize=UDim2.new(0,128,0,128),Size=UDim2.fromScale(1,1),BackgroundTransparency=1,
-ThemeTag={ImageTransparency='AcrylicNoise'}},{ah('UICorner',{CornerRadius=UDim.new(0,8)})}),ah('Frame',{
-BackgroundTransparency=1,Size=UDim2.fromScale(1,1),ZIndex=2},{ah('UICorner',{CornerRadius=UDim.new(0,8)}),ah('UIStroke',
-{Transparency=0.5,Thickness=1,ThemeTag={Color='AcrylicBorder'}})})})local d if ac(ae).UseAcrylic then d=ag()d.Frame.
-Parent=c.Frame c.Model=d.Model c.AddParent=d.AddParent c.SetVisibility=d.SetVisibility end return c end end)()end,[26]=
-function()local aa,ab,ac=a(26)local ad return(function(...)local ae=ab.Parent.Parent.Parent local af=ac(ae.Modules.
-Creator)local function ag()local ah=af.New('Part',{Name='Body',Color=Color3.new(0,0,0),Material=Enum.Material.Glass,Size
-=Vector3.new(1,1,0),Anchored=true,CanCollide=false,Locked=true,CastShadow=false,Transparency=0.98},{af.New('SpecialMesh'
-,{MeshType=Enum.MeshType.Brick,Offset=Vector3.new(0,0,-1E-6)})})return ah end return ag end)()end,[27]=function()local
-aa,ab,ac=a(27)local ad return(function(...)local function ae(af,ag,ah,b,c)return(af-ag)*(c-b)/(ah-ag)+b end
-local function af(ag,ah)local b=game:GetService'Workspace'.CurrentCamera:ScreenPointToRay(ag.X,ag.Y)return b.Origin+b.
-Direction*ah end local function ag()local ah=game:GetService'Workspace'.CurrentCamera.ViewportSize.Y return ae(ah,0,2560
-,8,56)end return{af,ag}end)()end,[28]=function()local aa,ab,ac=a(28)local ad return(function(...)local ae=ab.Parent.
-Parent local af,ag,ah,b=ac(ae.Themes),ac(ae.Packages.Flipper),ac(ae.Packages.Ripple),ac(ae.Packages.Signal)local c={
-Registry={},Signals={},TransparencyMotors={},DefaultProperties={ScreenGui={ResetOnSpawn=false,ZIndexBehavior=Enum.
-ZIndexBehavior.Sibling},Frame={BackgroundColor3=Color3.new(1,1,1),BorderColor3=Color3.new(0,0,0),BorderSizePixel=0},
-ScrollingFrame={BackgroundColor3=Color3.new(1,1,1),BorderColor3=Color3.new(0,0,0),ScrollBarImageColor3=Color3.new(0,0,0)
-},TextLabel={BackgroundColor3=Color3.new(1,1,1),BorderColor3=Color3.new(0,0,0),Font=Enum.Font.SourceSans,Text='',
-TextColor3=Color3.new(0,0,0),BackgroundTransparency=1,TextSize=14,RichText=true},TextButton={BackgroundColor3=Color3.
-new(1,1,1),BorderColor3=Color3.new(0,0,0),AutoButtonColor=false,Font=Enum.Font.SourceSans,Text='',TextColor3=Color3.new(
-0,0,0),TextSize=14,RichText=true},TextBox={BackgroundColor3=Color3.new(1,1,1),BorderColor3=Color3.new(0,0,0),
-ClearTextOnFocus=false,Font=Enum.Font.SourceSans,Text='',TextColor3=Color3.new(0,0,0),TextSize=14,RichText=true},
-ImageLabel={BackgroundTransparency=1,BackgroundColor3=Color3.new(1,1,1),BorderColor3=Color3.new(0,0,0),BorderSizePixel=0
-},ImageButton={BackgroundColor3=Color3.new(1,1,1),BorderColor3=Color3.new(0,0,0),AutoButtonColor=false},CanvasGroup={
-BackgroundColor3=Color3.new(1,1,1),BorderColor3=Color3.new(0,0,0),BorderSizePixel=0}},Theme={Updating=false,Updated=b.
-new()}}local function d(e,f:{[string]:any}?)if typeof(f)=='table'and f.ThemeTag then c.AddThemeObject(e,f.ThemeTag)end
-end function c.AddSignal(e:RBXScriptSignal,f)c.Signals[#c.Signals+1]=e:Connect(f)end function c.Disconnect()for e=#c.
-Signals,1,-1 do local f=table.remove(c.Signals,e)if f then f:Disconnect()end end end function c.GetThemeProperty(e)if af
-[ac(ae).Theme][e]then return af[ac(ae).Theme][e]end return af.Dark[e]end function c.UpdateTheme(e:Instance?)if c.Theme.
-Updating then c.Theme.Updated:Wait()end c.Theme.Updating=true local f=0 if typeof(e)=='Instance'and c.Registry[e]then
-for g,h in next,c.Registry[e].Properties do f+=1 if f%200==0 then task.wait()end e[g]=c.GetThemeProperty(h)end else for
-g,h in next,c.Registry do f+=1 if f%200==0 then task.wait()end for i,j in next,h.Properties do f+=1 if f%200==0 then
-task.wait()end h.Object[i]=c.GetThemeProperty(j)end end end for g:number,h in next,c.TransparencyMotors do if g%200==0
-then task.wait()end h:setGoal(ag.Instant.new(c.GetThemeProperty'ElementTransparency'))end c.Theme.Updating=false c.Theme
-.Updated:Fire()end function c.AddThemeObject(e:Instance,f:{[string]:any})local g=#c.Registry+1 local h={Object=e,
-Properties=f,Idx=g}c.Registry[e]=h c.UpdateTheme(e)return e end function c.OverrideTag(e,f)c.Registry[e].Properties=f c.
-UpdateTheme(e)end function c.New(e,f:{[string]:any}?,g:{[number]:Instance}?):Instance local h=Instance.new(e)for i,j in
-next,c.DefaultProperties[e]or{}do h[i]=j end for i,j in next,f or{}do if i~='ThemeTag'then h[i]=j end end for i,j in
-next,g or{}do j.Parent=h end d(h,f)return h end function c.SpringMotor(e:any,f:Object,g:string,h:boolean?,i:boolean?)h=h
-or false i=i or false local j=ag.SingleMotor.new(e)j:onStep(function(k)f[g]=k end)if i then c.TransparencyMotors[#c.
-TransparencyMotors+1]=j end local function k(l,m:boolean?)m=m or false if not h then if not m then if g==
-'BackgroundTransparency'and ac(ae).DialogOpen then return end end end j:setGoal(ag.Spring.new(l,{frequency=8}))end
+Creator),ac(ab.Parent.CreateAcrylic),unpack(ac(ab.Parent.Utils))local c local function d()if not c then c=Instance.new(
+'Folder',game:GetService'Workspace'.CurrentCamera)end return c end local function e(f)local g={}f=f or 0.001 local h,i={
+topLeft=Vector2.new(),topRight=Vector2.new(),bottomRight=Vector2.new()},ag()local j=i:FindFirstChildWhichIsA
+'SpecialMesh'i.Parent=d()local function k(l,m)h.topLeft=m h.topRight=m+Vector2.new(l.X,0)h.bottomRight=m+l end
+local function l()local m=game:GetService'Workspace'.CurrentCamera local n,o,p,q=if m then m.CFrame else CFrame.identity
+,h.topLeft,h.topRight,h.bottomRight local r,s,t=ah(o,f),ah(p,f),ah(q,f)local u,v=(s-r).Magnitude,(s-t).Magnitude i.
+CFrame=CFrame.fromMatrix((r+t)/2,n.XVector,n.YVector,n.ZVector)if j then j.Scale=Vector3.new(u,v,0)end end
+local function m(n)local o=b()local p,q=n.AbsoluteSize-Vector2.new(o,o),n.AbsolutePosition+Vector2.new(o/2,o/2)k(p,q)
+task.spawn(l)end local function n()local o=game:GetService'Workspace'.CurrentCamera if not o then return end g[#g+1]=o:
+GetPropertyChangedSignal'CFrame':Connect(l)g[#g+1]=o:GetPropertyChangedSignal'ViewportSize':Connect(l)g[#g+1]=o:
+GetPropertyChangedSignal'FieldOfView':Connect(l)task.spawn(l)end i.Destroying:Connect(function()for o,p in g do pcall(
+function()p:Disconnect()end)end end)n()return m,i end return function(f)local g,h,i={},e(f)local j=af.New('Frame',{
+BackgroundTransparency=1,Size=UDim2.fromScale(1,1)})af.AddSignal(j:GetPropertyChangedSignal'AbsolutePosition',function()
+h(j)end)af.AddSignal(j:GetPropertyChangedSignal'AbsoluteSize',function()h(j)end)g.AddParent=function(k)af.AddSignal(k:
+GetPropertyChangedSignal'Visible',function()g.SetVisibility(k.Visible)end)end g.SetVisibility=function(k)i.Transparency=
+k and 0.98 or 1 end g.Frame=j g.Model=i return g end end)()end,[25]=function()local aa,ab,ac=a(25)local ad return(
+function(...)local ae=ab.Parent.Parent.Parent local af,ag=ac(ae.Modules.Creator),ac(ab.Parent.AcrylicBlur)local ah=af.
+New return function(b)local c={}c.Frame=ah('Frame',{Size=UDim2.fromScale(1,1),BackgroundTransparency=0.9,
+BackgroundColor3=Color3.fromRGB(255,255,255),BorderSizePixel=0},{ah('ImageLabel',{Image='rbxassetid://8992230677',
+ScaleType='Slice',SliceCenter=Rect.new(Vector2.new(99,99),Vector2.new(99,99)),AnchorPoint=Vector2.new(0.5,0.5),Size=
+UDim2.new(1,120,1,116),Position=UDim2.new(0.5,0,0.5,0),BackgroundTransparency=1,ImageColor3=Color3.fromRGB(0,0,0),
+ImageTransparency=0.7}),ah('UICorner',{CornerRadius=UDim.new(0,8)}),ah('Frame',{BackgroundTransparency=0.45,Size=UDim2.
+fromScale(1,1),Name='Background',ThemeTag={BackgroundColor3='AcrylicMain'}},{ah('UICorner',{CornerRadius=UDim.new(0,8)})
+}),ah('Frame',{BackgroundColor3=Color3.fromRGB(255,255,255),BackgroundTransparency=0.4,Size=UDim2.fromScale(1,1)},{ah(
+'UICorner',{CornerRadius=UDim.new(0,8)}),ah('UIGradient',{Rotation=90,ThemeTag={Color='AcrylicGradient'}})}),ah(
+'ImageLabel',{Image='rbxassetid://9968344105',ImageTransparency=0.98,ScaleType=Enum.ScaleType.Tile,TileSize=UDim2.new(0,
+128,0,128),Size=UDim2.fromScale(1,1),BackgroundTransparency=1},{ah('UICorner',{CornerRadius=UDim.new(0,8)})}),ah(
+'ImageLabel',{Image='rbxassetid://9968344227',ImageTransparency=0.9,ScaleType=Enum.ScaleType.Tile,TileSize=UDim2.new(0,
+128,0,128),Size=UDim2.fromScale(1,1),BackgroundTransparency=1,ThemeTag={ImageTransparency='AcrylicNoise'}},{ah(
+'UICorner',{CornerRadius=UDim.new(0,8)})}),ah('Frame',{BackgroundTransparency=1,Size=UDim2.fromScale(1,1),ZIndex=2},{ah(
+'UICorner',{CornerRadius=UDim.new(0,8)}),ah('UIStroke',{Transparency=0.5,Thickness=1,ThemeTag={Color='AcrylicBorder'}})}
+)})local d if ac(ae).UseAcrylic then d=ag()d.Frame.Parent=c.Frame c.Model=d.Model c.AddParent=d.AddParent c.
+SetVisibility=d.SetVisibility end return c end end)()end,[26]=function()local aa,ab,ac=a(26)local ad return(function(...
+)local ae=ab.Parent.Parent.Parent local af=ac(ae.Modules.Creator)local function ag()local ah=af.New('Part',{Name='Body',
+Color=Color3.new(0,0,0),Material=Enum.Material.Glass,Size=Vector3.new(1,1,0),Anchored=true,CanCollide=false,Locked=true,
+CastShadow=false,Transparency=0.98},{af.New('SpecialMesh',{MeshType=Enum.MeshType.Brick,Offset=Vector3.new(0,0,-1E-6)})}
+)return ah end return ag end)()end,[27]=function()local aa,ab,ac=a(27)local ad return(function(...)local function ae(af,
+ag,ah,b,c)return(af-ag)*(c-b)/(ah-ag)+b end local function af(ag,ah)local b=game:GetService'Workspace'.CurrentCamera:
+ScreenPointToRay(ag.X,ag.Y)return b.Origin+b.Direction*ah end local function ag()local ah=game:GetService'Workspace'.
+CurrentCamera.ViewportSize.Y return ae(ah,0,2560,8,56)end return{af,ag}end)()end,[28]=function()local aa,ab,ac=a(28)
+local ad return(function(...)local ae=ab.Parent.Parent local af,ag,ah,b=ac(ae.Themes),ac(ae.Packages.Flipper),ac(ae.
+Packages.Ripple),ac(ae.Packages.Signal)local c={Registry={},Signals={},TransparencyMotors={},DefaultProperties={
+ScreenGui={ResetOnSpawn=false,ZIndexBehavior=Enum.ZIndexBehavior.Sibling},Frame={BackgroundColor3=Color3.new(1,1,1),
+BorderColor3=Color3.new(0,0,0),BorderSizePixel=0},ScrollingFrame={BackgroundColor3=Color3.new(1,1,1),BorderColor3=Color3
+.new(0,0,0),ScrollBarImageColor3=Color3.new(0,0,0)},TextLabel={BackgroundColor3=Color3.new(1,1,1),BorderColor3=Color3.
+new(0,0,0),Font=Enum.Font.SourceSans,Text='',TextColor3=Color3.new(0,0,0),BackgroundTransparency=1,TextSize=14,RichText=
+true},TextButton={BackgroundColor3=Color3.new(1,1,1),BorderColor3=Color3.new(0,0,0),AutoButtonColor=false,Font=Enum.Font
+.SourceSans,Text='',TextColor3=Color3.new(0,0,0),TextSize=14,RichText=true},TextBox={BackgroundColor3=Color3.new(1,1,1),
+BorderColor3=Color3.new(0,0,0),ClearTextOnFocus=false,Font=Enum.Font.SourceSans,Text='',TextColor3=Color3.new(0,0,0),
+TextSize=14,RichText=true},ImageLabel={BackgroundTransparency=1,BackgroundColor3=Color3.new(1,1,1),BorderColor3=Color3.
+new(0,0,0),BorderSizePixel=0},ImageButton={BackgroundColor3=Color3.new(1,1,1),BorderColor3=Color3.new(0,0,0),
+AutoButtonColor=false},CanvasGroup={BackgroundColor3=Color3.new(1,1,1),BorderColor3=Color3.new(0,0,0),BorderSizePixel=0}
+},Theme={Updating=false,Updated=b.new()}}local function d(e,f:{[string]:any}?)if typeof(f)=='table'and f.ThemeTag then c
+.AddThemeObject(e,f.ThemeTag)end end function c.AddSignal(e:RBXScriptSignal,f)c.Signals[#c.Signals+1]=e:Connect(f)end
+function c.Disconnect()for e=#c.Signals,1,-1 do local f=table.remove(c.Signals,e)if f then f:Disconnect()end end end
+function c.GetThemeProperty(e)if af[ac(ae).Theme][e]then return af[ac(ae).Theme][e]end return af.Dark[e]end function c.
+UpdateTheme(e:Instance?)if c.Theme.Updating then c.Theme.Updated:Wait()end c.Theme.Updating=true local f=0 if typeof(e)
+=='Instance'and c.Registry[e]then for g,h in next,c.Registry[e].Properties do f+=1 if f%230==0 then task.wait()end e[g]=
+c.GetThemeProperty(h)end else for g,h in next,c.Registry do f+=1 if f%230==0 then task.wait()end for i,j in next,h.
+Properties do f+=1 if f%230==0 then task.wait()end h.Object[i]=c.GetThemeProperty(j)end end end for g:number,h in next,c
+.TransparencyMotors do if g%230==0 then task.wait()end h:setGoal(ag.Instant.new(c.GetThemeProperty'ElementTransparency')
+)end c.Theme.Updating=false c.Theme.Updated:Fire()end function c.AddThemeObject(e:Instance,f:{[string]:any})local g=#c.
+Registry+1 local h={Object=e,Properties=f,Idx=g}c.Registry[e]=h c.UpdateTheme(e)return e end function c.OverrideTag(e,f)
+c.Registry[e].Properties=f c.UpdateTheme(e)end function c.New(e,f:{[string]:any}?,g:{[number]:Instance}?):Instance local
+h=Instance.new(e)for i,j in next,c.DefaultProperties[e]or{}do h[i]=j end for i,j in next,f or{}do if i~='ThemeTag'then h
+[i]=j end end for i,j in next,g or{}do j.Parent=h end d(h,f)return h end function c.SpringMotor(e:any,f:Object,g:string,
+h:boolean?,i:boolean?)h=h or false i=i or false local j=ag.SingleMotor.new(e)j:onStep(function(k)f[g]=k end)if i then c.
+TransparencyMotors[#c.TransparencyMotors+1]=j end local function k(l,m:boolean?)m=m or false if not h then if not m then
+if g=='BackgroundTransparency'and ac(ae).DialogOpen then return end end end j:setGoal(ag.Spring.new(l,{frequency=8}))end
 return j,k end return c end)()end,[29]=function()local aa,ab,ac=a(29)local ad return(function(...)local ae,af,ag,ah,b,c,
 d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J,K,L,M,N='rbxassetid://124334518624683',
 'rbxassetid://113826256227095','rbxassetid://129900432084566','rbxassetid://118976126805967',
@@ -11196,36 +11196,36 @@ function()local aa,ab,ac=a(149)local ad return(function(...)return function()loc
 Parent.SingleMotor),ac(ab.Parent.GroupMotor)local ah,aj=af.new(0),ag.new{}it('should properly detect motors',function()
 expect(ae(ah)).to.equal(true)expect(ae(aj)).to.equal(true)end)it("shouldn't detect things that aren't motors",function()
 expect(ae{}).to.equal(false)end)it('should return the proper motor type',function()local ak,b=ae(ah)local c,d=ae(aj)
-expect(b).to.equal'Single'expect(d).to.equal'Group'end)end end)()end},{{1,2,{'Fluent Renewed'},{{13,2,{'Elements'},{{14,
-2,{'Button'}},{15,2,{'Colorpicker'}},{20,2,{'Slider'}},{19,2,{'Paragraph'}},{17,2,{'Input'}},{18,2,{'Keybind'}},{21,2,{
-'Toggle'}},{16,2,{'Dropdown'}}}},{2,1,{'Components'},{{8,2,{'Section'}},{6,2,{'Element'}},{3,2,{'Assets'}},{12,2,{
-'Window'}},{10,2,{'Textbox'}},{7,2,{'Notification'}},{5,2,{'Dialog'}},{11,2,{'TitleBar'}},{9,2,{'Tab'}},{4,2,{'Button'}}
-}},{95,1,{'Packages'},{{98,2,{'Signal'}},{99,1,{'_Index'},{{125,1,{'lucasmzreal_fastsignal@10.4.0'},{{126,2,{
-'fastsignal'},{{127,2,{'Deferred'}},{131,2,{'wally'}},{130,2,{'Readme'}},{128,2,{'Docs'}},{129,2,{'Immediate'}}}}}},{132
-,1,{'reselim_flipper@2.0.0'},{{133,2,{'flipper'},{{147,2,{'Spring.spec'}},{149,2,{'isMotor.spec'}},{148,2,{'isMotor'}},{
-135,2,{'BaseMotor.spec'}},{143,2,{'Signal.spec'}},{136,2,{'GroupMotor'}},{146,2,{'Spring'}},{134,2,{'BaseMotor'}},{144,2
-,{'SingleMotor'}},{139,2,{'Instant.spec'}},{137,2,{'GroupMotor.spec'}},{145,2,{'SingleMotor.spec'}},{141,2,{
-'Linear.spec'}},{142,2,{'Signal'}},{138,2,{'Instant'}},{140,2,{'Linear'}}}}}},{103,1,{'littensy_ripple@0.9.3'},{{105,2,{
-'ripple'},{{108,2,{'createMotion.spec'}},{119,1,{'utils'},{{120,2,{'assign'}},{124,2,{'spy'}},{122,2,{'merge'}},{123,2,{
-'snapshot'}},{121,2,{'intermediate'}}}},{118,2,{'types'}},{107,2,{'createMotion'}},{109,1,{'solvers'},{{114,2,{'spring'}
-},{110,2,{'immediate'}},{113,2,{'linear.spec'}},{111,2,{'immediate.spec'}},{116,2,{'tween'}},{112,2,{'linear'}},{117,2,{
-'tween.spec'}},{115,2,{'spring.spec'}}}},{106,2,{'config'}}}},{104,2,{'Promise'}}}},{100,1,{'evaera_promise@4.0.0'},{{
-101,2,{'promise'},{{102,2,{'init.spec'}}}}}}}},{96,2,{'Flipper'}},{97,2,{'Ripple'}}}},{30,2,{'Themes'},{{54,2,{
-'GitHub Light Colorblind'}},{47,2,{'Elementary'}},{50,2,{'GitHub Dark Default'}},{78,2,{'VSC Dark Modern'}},{53,2,{
-'GitHub Dark'}},{66,2,{'OpalineHalo'}},{61,2,{'Monokai Classic'}},{84,2,{'VerdantGlass'}},{42,2,{'DuoTone Dark Earth'}},
-{93,2,{'Yaru Dark'}},{41,2,{'Darker'}},{32,2,{'Adapta Nokto'}},{58,2,{'Kimbie Dark'}},{71,2,{'Tomorrow Night Blue'}},{92
-,2,{'Vynixu'}},{45,2,{'DuoTone Dark Sky'}},{90,2,{'Viow Mars'}},{36,2,{'Amethyst'}},{44,2,{'DuoTone Dark Sea'}},{89,2,{
-'Viow Light'}},{88,2,{'Viow Flat'}},{81,2,{'VSC Light Modern'}},{52,2,{'GitHub Dark High Contrast'}},{38,2,{'Arc Dark'}}
-,{79,2,{'VSC Dark+'}},{83,2,{'VSC Red'}},{40,2,{'Dark'}},{56,2,{'GitHub Light High Contrast'}},{46,2,{
-'DuoTone Dark Space'}},{67,2,{'Quiet Light'}},{68,2,{'Rose'}},{31,2,{'Abyss'}},{74,2,{'United Ubuntu'}},{86,2,{
-'Viow Arabian'}},{64,2,{'Monokai'}},{33,2,{'Amberfall'}},{51,2,{'GitHub Dark Dimmed'}},{82,2,{'VSC Light+'}},{87,2,{
-'Viow Darker'}},{80,2,{'VSC Light High Contrast'}},{77,2,{'VSC Dark High Contrast'}},{69,2,{'Solarized Dark'}},{75,2,{
-'VS Dark'}},{85,2,{'Viow Arabian Mix'}},{62,2,{'Monokai Dimmed'}},{57,2,{'GitHub Light'}},{72,2,{'Typewriter'}},{73,2,{
-'United GNOME'}},{76,2,{'VS Light'}},{94,2,{'Yaru'}},{65,2,{'NeonTide'}},{70,2,{'Solarized Light'}},{43,2,{
-'DuoTone Dark Forest'}},{48,2,{'FrozenAurora'}},{34,2,{'Ambiance'}},{39,2,{'Dark Typewriter'}},{63,2,{'Monokai Vibrant'}
-},{91,2,{'Viow Neon'}},{60,2,{'MidnightPrism'}},{37,2,{'Aqua'}},{35,2,{'Amethyst Dark'}},{49,2,{'GitHub Dark Colorblind'
-}},{55,2,{'GitHub Light Default'}},{59,2,{'Light'}}}},{22,1,{'Modules'},{{29,2,{'Icons'}},{23,2,{'Acrylic'},{{24,2,{
-'AcrylicBlur'}},{26,2,{'CreateAcrylic'}},{27,2,{'Utils'}},{25,2,{'AcrylicPaint'}}}},{28,2,{'Creator'}}}}}}},'0.4.2',
+expect(b).to.equal'Single'expect(d).to.equal'Group'end)end end)()end},{{1,2,{'Fluent Renewed'},{{13,2,{'Elements'},{{17,
+2,{'Input'}},{19,2,{'Paragraph'}},{16,2,{'Dropdown'}},{14,2,{'Button'}},{15,2,{'Colorpicker'}},{21,2,{'Toggle'}},{20,2,{
+'Slider'}},{18,2,{'Keybind'}}}},{95,1,{'Packages'},{{98,2,{'Signal'}},{96,2,{'Flipper'}},{99,1,{'_Index'},{{132,1,{
+'reselim_flipper@2.0.0'},{{133,2,{'flipper'},{{140,2,{'Linear'}},{134,2,{'BaseMotor'}},{149,2,{'isMotor.spec'}},{144,2,{
+'SingleMotor'}},{141,2,{'Linear.spec'}},{148,2,{'isMotor'}},{137,2,{'GroupMotor.spec'}},{147,2,{'Spring.spec'}},{136,2,{
+'GroupMotor'}},{135,2,{'BaseMotor.spec'}},{139,2,{'Instant.spec'}},{138,2,{'Instant'}},{145,2,{'SingleMotor.spec'}},{143
+,2,{'Signal.spec'}},{142,2,{'Signal'}},{146,2,{'Spring'}}}}}},{125,1,{'lucasmzreal_fastsignal@10.4.0'},{{126,2,{
+'fastsignal'},{{127,2,{'Deferred'}},{130,2,{'Readme'}},{129,2,{'Immediate'}},{128,2,{'Docs'}},{131,2,{'wally'}}}}}},{103
+,1,{'littensy_ripple@0.9.3'},{{105,2,{'ripple'},{{109,1,{'solvers'},{{111,2,{'immediate.spec'}},{110,2,{'immediate'}},{
+117,2,{'tween.spec'}},{116,2,{'tween'}},{115,2,{'spring.spec'}},{112,2,{'linear'}},{113,2,{'linear.spec'}},{114,2,{
+'spring'}}}},{106,2,{'config'}},{118,2,{'types'}},{119,1,{'utils'},{{121,2,{'intermediate'}},{124,2,{'spy'}},{123,2,{
+'snapshot'}},{120,2,{'assign'}},{122,2,{'merge'}}}},{107,2,{'createMotion'}},{108,2,{'createMotion.spec'}}}},{104,2,{
+'Promise'}}}},{100,1,{'evaera_promise@4.0.0'},{{101,2,{'promise'},{{102,2,{'init.spec'}}}}}}}},{97,2,{'Ripple'}}}},{22,1
+,{'Modules'},{{29,2,{'Icons'}},{28,2,{'Creator'}},{23,2,{'Acrylic'},{{24,2,{'AcrylicBlur'}},{27,2,{'Utils'}},{25,2,{
+'AcrylicPaint'}},{26,2,{'CreateAcrylic'}}}}}},{2,1,{'Components'},{{12,2,{'Window'}},{11,2,{'TitleBar'}},{3,2,{'Assets'}
+},{4,2,{'Button'}},{10,2,{'Textbox'}},{6,2,{'Element'}},{5,2,{'Dialog'}},{9,2,{'Tab'}},{8,2,{'Section'}},{7,2,{
+'Notification'}}}},{30,2,{'Themes'},{{94,2,{'Yaru'}},{63,2,{'Monokai Vibrant'}},{93,2,{'Yaru Dark'}},{71,2,{
+'Tomorrow Night Blue'}},{84,2,{'VerdantGlass'}},{53,2,{'GitHub Dark'}},{38,2,{'Arc Dark'}},{51,2,{'GitHub Dark Dimmed'}}
+,{92,2,{'Vynixu'}},{81,2,{'VSC Light Modern'}},{91,2,{'Viow Neon'}},{90,2,{'Viow Mars'}},{41,2,{'Darker'}},{89,2,{
+'Viow Light'}},{59,2,{'Light'}},{31,2,{'Abyss'}},{88,2,{'Viow Flat'}},{87,2,{'Viow Darker'}},{86,2,{'Viow Arabian'}},{32
+,2,{'Adapta Nokto'}},{45,2,{'DuoTone Dark Sky'}},{49,2,{'GitHub Dark Colorblind'}},{34,2,{'Ambiance'}},{85,2,{
+'Viow Arabian Mix'}},{46,2,{'DuoTone Dark Space'}},{39,2,{'Dark Typewriter'}},{55,2,{'GitHub Light Default'}},{37,2,{
+'Aqua'}},{35,2,{'Amethyst Dark'}},{83,2,{'VSC Red'}},{47,2,{'Elementary'}},{73,2,{'United GNOME'}},{44,2,{
+'DuoTone Dark Sea'}},{75,2,{'VS Dark'}},{64,2,{'Monokai'}},{82,2,{'VSC Light+'}},{80,2,{'VSC Light High Contrast'}},{67,
+2,{'Quiet Light'}},{79,2,{'VSC Dark+'}},{78,2,{'VSC Dark Modern'}},{70,2,{'Solarized Light'}},{48,2,{'FrozenAurora'}},{
+76,2,{'VS Light'}},{74,2,{'United Ubuntu'}},{43,2,{'DuoTone Dark Forest'}},{58,2,{'Kimbie Dark'}},{72,2,{'Typewriter'}},
+{56,2,{'GitHub Light High Contrast'}},{77,2,{'VSC Dark High Contrast'}},{69,2,{'Solarized Dark'}},{65,2,{'NeonTide'}},{
+40,2,{'Dark'}},{52,2,{'GitHub Dark High Contrast'}},{62,2,{'Monokai Dimmed'}},{66,2,{'OpalineHalo'}},{54,2,{
+'GitHub Light Colorblind'}},{50,2,{'GitHub Dark Default'}},{60,2,{'MidnightPrism'}},{61,2,{'Monokai Classic'}},{68,2,{
+'Rose'}},{36,2,{'Amethyst'}},{42,2,{'DuoTone Dark Earth'}},{33,2,{'Amberfall'}},{57,2,{'GitHub Light'}}}}}}},'0.4.2',
 'WaxRuntime',string,task,setmetatable,error,next,table,unpack,coroutine,script,type,require,pcall,tostring,tonumber,
 _VERSION local m,n,o,p,q,r,s=b.insert,b.remove,b.freeze or function(m)return m end,d.wrap,ae.sub,ae.match,ae.gmatch if k
 and q(k,1,4)=='Lune'then local t,u=h(g,'@lune/task')if t and u then af=u end end local t=af and af.defer local u,v,w,x,y
