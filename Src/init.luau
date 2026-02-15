@@ -137,6 +137,7 @@ local Library = {
 
 	Theme = "Dark",
 	DialogOpen = false,
+	AcrylicSupported = true,
 	UseAcrylic = false,
 	Acrylic = false,
 	Transparency = true,
@@ -275,13 +276,12 @@ function Library:Window(Config: {
 	Config.MinSize = if Config.Resize ~= true then Config.MinSize else Vector2.new(Library.Utilities:Resize((Config.MinSize and Config.MinSize.X) or 470, (Config.MinSize and Config.MinSize.Y) or 380))
 
 	Library.MinimizeKey = if typeof(Config.MinimizeKey) == "string" or typeof(Config.MinimizeKey) == "EnumItem" and Config.MinimizeKey.EnumType == Enum.KeyCode then Config.MinimizeKey else Enum.KeyCode.LeftControl
-	Library.UseAcrylic = if typeof(Config.Acrylic) == "boolean" then Config.Acrylic else false
-	Library.Acrylic = if typeof(Config.Acrylic) == "boolean" then Config.Acrylic else false
+	local initialAcrylic = if typeof(Config.Acrylic) == "boolean" then Config.Acrylic else false
+	Library.UseAcrylic = initialAcrylic
+	Library.Acrylic = initialAcrylic
 	Library.Theme = if typeof(Config.Theme) == "string" then Config.Theme else "Vynixu"
 
-	if Config.Acrylic then
-		Acrylic.init()
-	end
+	Library.AcrylicSupported = pcall(Acrylic.init)
 
 	local Window = require(Components.Window){
 		Config = Config,
@@ -306,6 +306,7 @@ function Library:Window(Config: {
 
 	Library.CreatedWindow = Window
 	Library:SetTheme(Library.Theme)
+	Library:ToggleAcrylic(Library.Acrylic)
 
 	return Window
 end
@@ -333,7 +334,7 @@ function Library:Destroy()
 
 		Library.OnUnload:Fire(tick())
 
-		if Library.UseAcrylic then
+		if Library.CreatedWindow.AcrylicPaint.Model then
 			Library.CreatedWindow.AcrylicPaint.Model:Destroy()
 		end
 
@@ -399,9 +400,10 @@ end
 
 function Library:ToggleAcrylic(Value: boolean)
 	if Library.CreatedWindow then
-		if Library.UseAcrylic then
-			Library.Acrylic = Value
-			Library.CreatedWindow.AcrylicPaint.Model.Transparency = Value and 0.98 or 1
+		Library.UseAcrylic = Value
+		Library.Acrylic = Value
+		Library.CreatedWindow.AcrylicPaint.SetVisibility(Value)
+		if Library.AcrylicSupported then
 			if Value then
 				Acrylic.Enable()
 			else

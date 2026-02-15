@@ -157,6 +157,8 @@ function Notification:New(Config)
 		NewNotification.Root,
 	})
 
+	NewNotification.AcrylicPaint.SetVisibility(require(Root).Acrylic == true)
+
 	local RootMotor = Flipper.GroupMotor.new({
 		Scale = 1,
 		Offset = 60,
@@ -200,7 +202,7 @@ function Notification:New(Config)
 					Offset = Spring(60, { frequency = 5 }),
 				})
 				task.wait(0.4)
-				if require(Root).UseAcrylic then
+				if NewNotification.AcrylicPaint.Model then
 					NewNotification.AcrylicPaint.Model:Destroy()
 				end
 				NewNotification.Holder:Destroy()
