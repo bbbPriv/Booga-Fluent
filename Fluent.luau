@@ -61,14 +61,14 @@ end return G end for E,F in next,x.GUI:GetDescendants()do table.clear(B)if D(F,'
 =1 end if D(F,'ScrollingFrame')then B.ScrollBarImageTransparency=1 end if D(F,'TextLabel')or D(F,'TextBox')then B.
 TextStrokeTransparency=1 B.TextTransparency=1 end if D(F,'UIStroke')then B.Transparency=1 end if D(F,'ImageLabel')or D(F
 ,'ImageButton')then B.ImageTransparency=1 end if C then C=false h:Create(F,A,B):Play()end end task.delay(A.Time,function
-()x.GUI:Destroy()x.PostUnload:Fire(tick())end)end end function x.ToggleAcrylic(z,A:boolean)if x.CreatedWindow then if x.
-UseAcrylic then x.Acrylic=A x.CreatedWindow.AcrylicPaint.Model.Transparency=A and 0.98 or 1 if A then p.Enable()else p.
-Disable()end end end end function x.ToggleTransparency(z,A:boolean)if x.CreatedWindow then x.CreatedWindow.AcrylicPaint.
-Frame.Background.BackgroundTransparency=A and 0.35 or 0 end end function x.Notify(z,A)return t:New(A)end return x end)()
-end,[3]=function()local b,c,d=a(3)local e return(function(...)return{Close='rbxassetid://9886659671',Min=
-'rbxassetid://9886659276',Max='rbxassetid://9886659406',Restore='rbxassetid://9886659001'}end)()end,[4]=function()local
-b,c,d=a(4)local e return(function(...)local f=c.Parent.Parent local g,h=d(f.Packages.Flipper),d(f.Modules.Creator)local
-i,j=h.New,g.Spring.new return function(k,l,m)local n={}m=m or false n.Title=i('TextLabel',{FontFace=Font.new
+()x.GUI:Destroy()x.PostUnload:Fire(tick())end)end end function x.ToggleAcrylic(z,A:boolean)if x.CreatedWindow then x.
+Acrylic=A x.CreatedWindow.AcrylicPaint.Model.Transparency=A and 0.98 or 1 if A then p.Enable()else p.Disable()end end
+end function x.ToggleTransparency(z,A:boolean)if x.CreatedWindow then x.CreatedWindow.AcrylicPaint.Frame.Background.
+BackgroundTransparency=A and 0.35 or 0 end end function x.Notify(z,A)return t:New(A)end return x end)()end,[3]=function(
+)local b,c,d=a(3)local e return(function(...)return{Close='rbxassetid://9886659671',Min='rbxassetid://9886659276',Max=
+'rbxassetid://9886659406',Restore='rbxassetid://9886659001'}end)()end,[4]=function()local b,c,d=a(4)local e return(
+function(...)local f=c.Parent.Parent local g,h=d(f.Packages.Flipper),d(f.Modules.Creator)local i,j=h.New,g.Spring.new
+return function(k,l,m)local n={}m=m or false n.Title=i('TextLabel',{FontFace=Font.new
 'rbxasset://fonts/families/GothamSSm.json',TextColor3=Color3.fromRGB(200,200,200),TextSize=14,TextWrapped=true,
 TextXAlignment=Enum.TextXAlignment.Center,TextYAlignment=Enum.TextYAlignment.Center,BackgroundColor3=Color3.fromRGB(255,
 255,255),AutomaticSize=Enum.AutomaticSize.Y,BackgroundTransparency=1,Size=UDim2.fromScale(1,1),ThemeTag={TextColor3=
@@ -11086,163 +11086,164 @@ return(function(...)return error'Not meant to run.'end)()end,[131]=function()loc
 function(...)return{package={authors={'RBLXUtils','LucasMZReal'},description=
 [[FastSignal is a signal library made with consistency and expectable behaviour in mind, it is efficient, easy to use, and widely compatible.]]
 ,license='MIT',name='lucasmzreal/fastsignal',realm='shared',registry='https://github.com/UpliftGames/wally-index',
-version='10.4.0'}}end)()end,[133]=function()local aa,ab,ac=a(133)local ad return(function(...)local ae={SingleMotor=ac(
-ab.SingleMotor),GroupMotor=ac(ab.GroupMotor),Instant=ac(ab.Instant),Linear=ac(ab.Linear),Spring=ac(ab.Spring),isMotor=
-ac(ab.isMotor)}return ae end)()end,[134]=function()local aa,ab,ac=a(134)local ad return(function(...)local ae,af,ag,ah=
-game:GetService'RunService',ac(ab.Parent.Signal),function()end,{}ah.__index=ah function ah.new()return setmetatable({
-_onStep=af.new(),_onStart=af.new(),_onComplete=af.new()},ah)end function ah.onStep(aj,ak)return aj._onStep:connect(ak)
-end function ah.onStart(aj,ak)return aj._onStart:connect(ak)end function ah.onComplete(aj,ak)return aj._onComplete:
-connect(ak)end function ah.start(aj)if not aj._connection then aj._connection=ae.RenderStepped:Connect(function(ak)aj:
-step(ak)end)end end function ah.stop(aj)if aj._connection then aj._connection:Disconnect()aj._connection=nil end end ah.
-destroy=ah.stop ah.step=ag ah.getValue=ag ah.setGoal=ag function ah.__tostring(aj)return'Motor'end return ah end)()end,[
-135]=function()local aa,ab,ac=a(135)local ad return(function(...)return function()local ae,af=game:GetService
-'RunService',ac(ab.Parent.BaseMotor)describe('connection management',function()local ag=af.new()it(
-'should hook up connections on :start()',function()ag:start()expect(typeof(ag._connection)).to.equal
-'RBXScriptConnection'end)it('should remove connections on :stop() or :destroy()',function()ag:stop()expect(ag.
-_connection).to.equal(nil)end)end)it('should call :step() with deltaTime',function()local ag,ah=(af.new())function ag.
-step(aj,...)ah={...}ag:stop()end ag:start()local aj=ae.RenderStepped:Wait()ae.RenderStepped:Wait()expect(ah).to.be.ok()
-expect(ah[1]).to.equal(aj)end)end end)()end,[136]=function()local aa,ab,ac=a(136)local ad return(function(...)local ae,
-af,ag=ac(ab.Parent.BaseMotor),ac(ab.Parent.SingleMotor),ac(ab.Parent.isMotor)local ah=setmetatable({},ae)ah.__index=ah
-local function aj(ak)if ag(ak)then return ak end local b=typeof(ak)if b=='number'then return af.new(ak,false)elseif b==
-'table'then return ah.new(ak,false)end error(('Unable to convert %q to motor; type %s is unsupported'):format(ak,b),2)
-end function ah.new(ak,b)assert(ak,'Missing argument #1: initialValues')assert(typeof(ak)=='table',
-'initialValues must be a table!')assert(not ak.step,
-[[initialValues contains disallowed property "step". Did you mean to put a table of values here?]])local c=setmetatable(
-ae.new(),ah)if b~=nil then c._useImplicitConnections=b else c._useImplicitConnections=true end c._complete=true c.
-_motors={}for d,e in pairs(ak)do c._motors[d]=aj(e)end return c end function ah.step(ak,b)if ak._complete then return
-true end local c=true for d,e in pairs(ak._motors)do local f=e:step(b)if not f then c=false end end ak._onStep:fire(ak:
-getValue())if c then if ak._useImplicitConnections then ak:stop()end ak._complete=true ak._onComplete:fire()end return c
-end function ah.setGoal(ak,b)assert(not b.step,
-[[goals contains disallowed property "step". Did you mean to put a table of goals here?]])ak._complete=false ak._onStart
-:fire()for c,d in pairs(b)do local e=assert(ak._motors[c],('Unknown motor for key %s'):format(c))e:setGoal(d)end if ak.
-_useImplicitConnections then ak:start()end end function ah.getValue(ak)local b={}for c,d in pairs(ak._motors)do b[c]=d:
-getValue()end return b end function ah.__tostring(ak)return'Motor(Group)'end return ah end)()end,[137]=function()local
-aa,ab,ac=a(137)local ad return(function(...)return function()local ae,af,ag=ac(ab.Parent.GroupMotor),ac(ab.Parent.
-Instant),ac(ab.Parent.Spring)it('should complete when all child motors are complete',function()local ah=ae.new({A=1,B=2}
-,false)expect(ah._complete).to.equal(true)ah:setGoal{A=af.new(3),B=ag.new(4,{frequency=7.5,dampingRatio=1})}expect(ah.
-_complete).to.equal(false)ah:step(1.6666666666666665E-2)expect(ah._complete).to.equal(false)for aj=1,30 do ah:step(
-1.6666666666666665E-2)end expect(ah._complete).to.equal(true)end)it('should start when the goal is set',function()local
-ah,aj=ae.new({A=0},false),false ah:onStart(function()aj=not aj end)ah:setGoal{A=af.new(1)}expect(aj).to.equal(true)ah:
-setGoal{A=af.new(1)}expect(aj).to.equal(false)end)it('should properly return all values',function()local ah=ae.new({A=1,
-B=2},false)local aj=ah:getValue()expect(aj.A).to.equal(1)expect(aj.B).to.equal(2)end)it(
-'should error when a goal is given to GroupMotor.new',function()local ah=pcall(function()ae.new(af.new(0))end)expect(ah)
-.to.equal(false)end)it([[should error when a single goal is provided to GroupMotor:step]],function()local ah=pcall(
-function()ae.new{a=1}:setGoal(af.new(0))end)expect(ah).to.equal(false)end)end end)()end,[138]=function()local aa,ab,ac=
-a(138)local ad return(function(...)local ae={}ae.__index=ae function ae.new(af)return setmetatable({_targetValue=af},ae)
-end function ae.step(af)return{complete=true,value=af._targetValue}end return ae end)()end,[139]=function()local aa,ab,
-ac=a(139)local ad return(function(...)return function()local ae=ac(ab.Parent.Instant)it(
-'should return a completed state with the provided value',function()local af=ae.new(1.23)local ag=af:step(0.1,{value=0,
-complete=false})expect(ag.complete).to.equal(true)expect(ag.value).to.equal(1.23)end)end end)()end,[140]=function()local
-aa,ab,ac=a(140)local ad return(function(...)local ae={}ae.__index=ae function ae.new(af,ag)assert(af,
+version='10.4.0'}}end)()end,[134]=function()local aa,ab,ac=a(134)local ad return(function(...)local ae,af,ag,ah=game:
+GetService'RunService',ac(ab.Parent.Signal),function()end,{}ah.__index=ah function ah.new()return setmetatable({_onStep=
+af.new(),_onStart=af.new(),_onComplete=af.new()},ah)end function ah.onStep(aj,ak)return aj._onStep:connect(ak)end
+function ah.onStart(aj,ak)return aj._onStart:connect(ak)end function ah.onComplete(aj,ak)return aj._onComplete:connect(
+ak)end function ah.start(aj)if not aj._connection then aj._connection=ae.RenderStepped:Connect(function(ak)aj:step(ak)
+end)end end function ah.stop(aj)if aj._connection then aj._connection:Disconnect()aj._connection=nil end end ah.destroy=
+ah.stop ah.step=ag ah.getValue=ag ah.setGoal=ag function ah.__tostring(aj)return'Motor'end return ah end)()end,[140]=
+function()local aa,ab,ac=a(140)local ad return(function(...)local ae={}ae.__index=ae function ae.new(af,ag)assert(af,
 'Missing argument #1: targetValue')ag=ag or{}return setmetatable({_targetValue=af,_velocity=ag.velocity or 1},ae)end
 function ae.step(af,ag,ah)local aj,ak,b=ag.value,af._velocity,af._targetValue local c=ah*ak local d=c>=math.abs(b-aj)aj=
 aj+c*(b>aj and 1 or-1)if d then aj=af._targetValue ak=0 end return{complete=d,value=aj,velocity=ak}end return ae end)()
-end,[141]=function()local aa,ab,ac=a(141)local ad return(function(...)return function()local ae,af=ac(ab.Parent.
-SingleMotor),ac(ab.Parent.Linear)describe('completed state',function()local ag,ah=ae.new(0,false),af.new(1,{velocity=1})
-ag:setGoal(ah)for aj=1,60 do ag:step(1.6666666666666665E-2)end it('should complete',function()expect(ag._state.complete)
-.to.equal(true)end)it('should be exactly the goal value when completed',function()expect(ag._state.value).to.equal(1)end
-)end)describe('uncompleted state',function()local ag,ah=ae.new(0,false),af.new(1,{velocity=1})ag:setGoal(ah)for aj=1,59
-do ag:step(1.6666666666666665E-2)end it('should be uncomplete',function()expect(ag._state.complete).to.equal(false)end)
-end)describe('negative velocity',function()local ag,ah=ae.new(1,false),af.new(0,{velocity=1})ag:setGoal(ah)for aj=1,60
-do ag:step(1.6666666666666665E-2)end it('should complete',function()expect(ag._state.complete).to.equal(true)end)it(
-'should be exactly the goal value when completed',function()expect(ag._state.value).to.equal(0)end)end)end end)()end,[
-142]=function()local aa,ab,ac=a(142)local ad return(function(...)local ae={}ae.__index=ae function ae.new(af,ag)return
-setmetatable({signal=af,connected=true,_handler=ag},ae)end function ae.disconnect(af)if af.connected then af.connected=
-false for ag,ah in pairs(af.signal._connections)do if ah==af then table.remove(af.signal._connections,ag)return end end
-end end local af={}af.__index=af function af.new()return setmetatable({_connections={},_threads={}},af)end function af.
-fire(ag,...)for ah,aj in pairs(ag._connections)do aj._handler(...)end for ah,aj in pairs(ag._threads)do coroutine.
-resume(aj,...)end ag._threads={}end function af.connect(ag,ah)local aj=ae.new(ag,ah)table.insert(ag._connections,aj)
-return aj end function af.wait(ag)table.insert(ag._threads,coroutine.running())return coroutine.yield()end return af end
-)()end,[143]=function()local aa,ab,ac=a(143)local ad return(function(...)return function()local ae=ac(ab.Parent.Signal)
-it('should invoke all connections, instantly',function()local af,ag,ah=(ae.new())af:connect(function(aj)ag=aj end)af:
+end,[143]=function()local aa,ab,ac=a(143)local ad return(function(...)return function()local ae=ac(ab.Parent.Signal)it(
+'should invoke all connections, instantly',function()local af,ag,ah=(ae.new())af:connect(function(aj)ag=aj end)af:
 connect(function(aj)ah=aj end)af:fire'hello'expect(ag).to.equal'hello'expect(ah).to.equal'hello'end)it(
 'should return values when :wait() is called',function()local af=ae.new()spawn(function()af:fire(123,'hello')end)local
 ag,ah=af:wait()expect(ag).to.equal(123)expect(ah).to.equal'hello'end)it('should properly handle disconnections',function
 ()local af,ag=ae.new(),false local ah=af:connect(function()ag=true end)ah:disconnect()af:fire()expect(ag).to.equal(false
-)end)end end)()end,[144]=function()local aa,ab,ac=a(144)local ad return(function(...)local ae=ac(ab.Parent.BaseMotor)
-local af=setmetatable({},ae)af.__index=af function af.new(ag,ah)assert(ag,'Missing argument #1: initialValue')assert(
-typeof(ag)=='number','initialValue must be a number!')local aj=setmetatable(ae.new(),af)if ah~=nil then aj.
+)end)end end)()end,[149]=function()local aa,ab,ac=a(149)local ad return(function(...)return function()local ae,af,ag=ac(
+ab.Parent.isMotor),ac(ab.Parent.SingleMotor),ac(ab.Parent.GroupMotor)local ah,aj=af.new(0),ag.new{}it(
+'should properly detect motors',function()expect(ae(ah)).to.equal(true)expect(ae(aj)).to.equal(true)end)it(
+"shouldn't detect things that aren't motors",function()expect(ae{}).to.equal(false)end)it(
+'should return the proper motor type',function()local ak,b=ae(ah)local c,d=ae(aj)expect(b).to.equal'Single'expect(d).to.
+equal'Group'end)end end)()end,[137]=function()local aa,ab,ac=a(137)local ad return(function(...)return function()local
+ae,af,ag=ac(ab.Parent.GroupMotor),ac(ab.Parent.Instant),ac(ab.Parent.Spring)it(
+'should complete when all child motors are complete',function()local ah=ae.new({A=1,B=2},false)expect(ah._complete).to.
+equal(true)ah:setGoal{A=af.new(3),B=ag.new(4,{frequency=7.5,dampingRatio=1})}expect(ah._complete).to.equal(false)ah:
+step(1.6666666666666665E-2)expect(ah._complete).to.equal(false)for aj=1,30 do ah:step(1.6666666666666665E-2)end expect(
+ah._complete).to.equal(true)end)it('should start when the goal is set',function()local ah,aj=ae.new({A=0},false),false
+ah:onStart(function()aj=not aj end)ah:setGoal{A=af.new(1)}expect(aj).to.equal(true)ah:setGoal{A=af.new(1)}expect(aj).to.
+equal(false)end)it('should properly return all values',function()local ah=ae.new({A=1,B=2},false)local aj=ah:getValue()
+expect(aj.A).to.equal(1)expect(aj.B).to.equal(2)end)it('should error when a goal is given to GroupMotor.new',function()
+local ah=pcall(function()ae.new(af.new(0))end)expect(ah).to.equal(false)end)it(
+[[should error when a single goal is provided to GroupMotor:step]],function()local ah=pcall(function()ae.new{a=1}:
+setGoal(af.new(0))end)expect(ah).to.equal(false)end)end end)()end,[147]=function()local aa,ab,ac=a(147)local ad return(
+function(...)return function()local ae,af=ac(ab.Parent.SingleMotor),ac(ab.Parent.Spring)describe('completed state',
+function()local ag,ah=ae.new(0,false),af.new(1,{frequency=2,dampingRatio=0.75})ag:setGoal(ah)for aj=1,100 do ag:step(
+1.6666666666666665E-2)end it('should complete',function()expect(ag._state.complete).to.equal(true)end)it(
+'should be exactly the goal value when completed',function()expect(ag._state.value).to.equal(1)end)end)it(
+'should inherit velocity',function()local ag=ae.new(0,false)ag._state={complete=false,value=0,velocity=-5}local ah=af.
+new(1,{frequency=2,dampingRatio=1})ag:setGoal(ah)ag:step(1.6666666666666665E-2)expect(ag._state.velocity<0).to.equal(
+true)end)end end)()end,[138]=function()local aa,ab,ac=a(138)local ad return(function(...)local ae={}ae.__index=ae
+function ae.new(af)return setmetatable({_targetValue=af},ae)end function ae.step(af)return{complete=true,value=af.
+_targetValue}end return ae end)()end,[136]=function()local aa,ab,ac=a(136)local ad return(function(...)local ae,af,ag=
+ac(ab.Parent.BaseMotor),ac(ab.Parent.SingleMotor),ac(ab.Parent.isMotor)local ah=setmetatable({},ae)ah.__index=ah
+local function aj(b)if ag(b)then return b end local c=typeof(b)if c=='number'then return af.new(b,false)elseif c==
+'table'then return ah.new(b,false)end error(('Unable to convert %q to motor; type %s is unsupported'):format(b,c),2)end
+function ah.new(b,c)assert(b,'Missing argument #1: initialValues')assert(typeof(b)=='table',
+'initialValues must be a table!')assert(not b.step,
+[[initialValues contains disallowed property "step". Did you mean to put a table of values here?]])local d=setmetatable(
+ae.new(),ah)if c~=nil then d._useImplicitConnections=c else d._useImplicitConnections=true end d._complete=true d.
+_motors={}for e,f in pairs(b)do d._motors[e]=aj(f)end return d end function ah.step(b,c)if b._complete then return true
+end local d=true for e,f in pairs(b._motors)do local g=f:step(c)if not g then d=false end end b._onStep:fire(b:getValue(
+))if d then if b._useImplicitConnections then b:stop()end b._complete=true b._onComplete:fire()end return d end function
+ah.setGoal(b,c)assert(not c.step,
+[[goals contains disallowed property "step". Did you mean to put a table of goals here?]])b._complete=false b._onStart:
+fire()for d,e in pairs(c)do local f=assert(b._motors[d],('Unknown motor for key %s'):format(d))f:setGoal(e)end if b.
+_useImplicitConnections then b:start()end end function ah.getValue(b)local c={}for d,e in pairs(b._motors)do c[d]=e:
+getValue()end return c end function ah.__tostring(b)return'Motor(Group)'end return ah end)()end,[146]=function()local aa
+,ab,ac=a(146)local ad return(function(...)local ae,af,ag,ah=0.001,0.001,0.0001,{}ah.__index=ah function ah.new(aj,b)
+assert(aj,'Missing argument #1: targetValue')b=b or{}return setmetatable({_targetValue=aj,_frequency=b.frequency or 4,
+_dampingRatio=b.dampingRatio or 1},ah)end function ah.step(aj,b,c)local d,e,f,g,h=aj._dampingRatio,aj._frequency*2*math.
+pi,aj._targetValue,b.value,b.velocity or 0 local i,j,k,l=g-f,(math.exp(-d*e*c))if d==1 then k=(i*(1+e*c)+h*c)*j+f l=(h*(
+1-e*c)-i*(e*e*c))*j elseif d<1 then local m=math.sqrt(1-d*d)local n,o,p=math.cos(e*m*c),(math.sin(e*m*c))if m>ag then p=
+o/m else local q=c*e p=q+((q*q)*(m*m)*(m*m)/20-m*m)*(q*q*q)/6 end local q if e*m>ag then q=o/(e*m)else local r=e*m q=c+(
+(c*c)*(r*r)*(r*r)/20-r*r)*(c*c*c)/6 end k=(i*(n+d*p)+h*q)*j+f l=(h*(n-p*d)-i*(p*e))*j else local m=math.sqrt(d*d-1)local
+n,o=-e*(d-m),-e*(d+m)local p=(h-i*n)/(2*e*m)local q=i-p local r,s=q*math.exp(n*c),p*math.exp(o*c)k=r+s+f l=r*n+s*o end
+local m=math.abs(l)<ae and math.abs(k-f)<af return{complete=m,value=m and f or k,velocity=l}end return ah end)()end,[133
+]=function()local aa,ab,ac=a(133)local ad return(function(...)local ae={SingleMotor=ac(ab.SingleMotor),GroupMotor=ac(ab.
+GroupMotor),Instant=ac(ab.Instant),Linear=ac(ab.Linear),Spring=ac(ab.Spring),isMotor=ac(ab.isMotor)}return ae end)()end,
+[148]=function()local aa,ab,ac=a(148)local ad return(function(...)local function ae(af)local ag=tostring(af):match
+'^Motor%((.+)%)$'if ag then return true,ag else return false end end return ae end)()end,[139]=function()local aa,ab,ac=
+a(139)local ad return(function(...)return function()local ae=ac(ab.Parent.Instant)it(
+'should return a completed state with the provided value',function()local af=ae.new(1.23)local ag=af:step(0.1,{value=0,
+complete=false})expect(ag.complete).to.equal(true)expect(ag.value).to.equal(1.23)end)end end)()end,[135]=function()local
+aa,ab,ac=a(135)local ad return(function(...)return function()local ae,af=game:GetService'RunService',ac(ab.Parent.
+BaseMotor)describe('connection management',function()local ag=af.new()it('should hook up connections on :start()',
+function()ag:start()expect(typeof(ag._connection)).to.equal'RBXScriptConnection'end)it(
+'should remove connections on :stop() or :destroy()',function()ag:stop()expect(ag._connection).to.equal(nil)end)end)it(
+'should call :step() with deltaTime',function()local ag,ah=(af.new())function ag.step(aj,...)ah={...}ag:stop()end ag:
+start()local aj=ae.RenderStepped:Wait()ae.RenderStepped:Wait()expect(ah).to.be.ok()expect(ah[1]).to.equal(aj)end)end end
+)()end,[142]=function()local aa,ab,ac=a(142)local ad return(function(...)local ae={}ae.__index=ae function ae.new(af,ag)
+return setmetatable({signal=af,connected=true,_handler=ag},ae)end function ae.disconnect(af)if af.connected then af.
+connected=false for ag,ah in pairs(af.signal._connections)do if ah==af then table.remove(af.signal._connections,ag)
+return end end end end local af={}af.__index=af function af.new()return setmetatable({_connections={},_threads={}},af)
+end function af.fire(ag,...)for ah,aj in pairs(ag._connections)do aj._handler(...)end for ah,aj in pairs(ag._threads)do
+coroutine.resume(aj,...)end ag._threads={}end function af.connect(ag,ah)local aj=ae.new(ag,ah)table.insert(ag.
+_connections,aj)return aj end function af.wait(ag)table.insert(ag._threads,coroutine.running())return coroutine.yield()
+end return af end)()end,[144]=function()local aa,ab,ac=a(144)local ad return(function(...)local ae=ac(ab.Parent.
+BaseMotor)local af=setmetatable({},ae)af.__index=af function af.new(ag,ah)assert(ag,'Missing argument #1: initialValue')
+assert(typeof(ag)=='number','initialValue must be a number!')local aj=setmetatable(ae.new(),af)if ah~=nil then aj.
 _useImplicitConnections=ah else aj._useImplicitConnections=true end aj._goal=nil aj._state={complete=true,value=ag}
 return aj end function af.step(ag,ah)if ag._state.complete then return true end local aj=ag._goal:step(ag._state,ah)ag.
 _state=aj ag._onStep:fire(aj.value)if aj.complete then if ag._useImplicitConnections then ag:stop()end ag._onComplete:
 fire()end return aj.complete end function af.getValue(ag)return ag._state.value end function af.setGoal(ag,ah)ag._state.
 complete=false ag._goal=ah ag._onStart:fire()if ag._useImplicitConnections then ag:start()end end function af.__tostring
-(ag)return'Motor(Single)'end return af end)()end,[145]=function()local aa,ab,ac=a(145)local ad return(function(...)
-return function()local ae,af=ac(ab.Parent.SingleMotor),ac(ab.Parent.Instant)it('should assign new state on step',
-function()local ag=ae.new(0,false)ag:setGoal(af.new(5))ag:step(1.6666666666666665E-2)expect(ag._state.complete).to.
-equal(true)expect(ag._state.value).to.equal(5)end)it([[should invoke onComplete listeners when the goal is completed]],
-function()local ag,ah=ae.new(0,false),false ag:onComplete(function()ah=true end)ag:setGoal(af.new(5))ag:step(
-1.6666666666666665E-2)expect(ah).to.equal(true)end)it('should start when the goal is set',function()local ag,ah=ae.new(0
-,false),false ag:onStart(function()ah=not ah end)ag:setGoal(af.new(5))expect(ah).to.equal(true)ag:setGoal(af.new(5))
-expect(ah).to.equal(false)end)end end)()end,[146]=function()local aa,ab,ac=a(146)local ad return(function(...)local ae,
-af,ag,ah=0.001,0.001,0.0001,{}ah.__index=ah function ah.new(aj,ak)assert(aj,'Missing argument #1: targetValue')ak=ak or{
-}return setmetatable({_targetValue=aj,_frequency=ak.frequency or 4,_dampingRatio=ak.dampingRatio or 1},ah)end function
-ah.step(aj,ak,b)local c,d,e,f,g=aj._dampingRatio,aj._frequency*2*math.pi,aj._targetValue,ak.value,ak.velocity or 0 local
-h,i,j,k=f-e,(math.exp(-c*d*b))if c==1 then j=(h*(1+d*b)+g*b)*i+e k=(g*(1-d*b)-h*(d*d*b))*i elseif c<1 then local l=math.
-sqrt(1-c*c)local m,n,o=math.cos(d*l*b),(math.sin(d*l*b))if l>ag then o=n/l else local p=b*d o=p+((p*p)*(l*l)*(l*l)/20-l*
-l)*(p*p*p)/6 end local p if d*l>ag then p=n/(d*l)else local q=d*l p=b+((b*b)*(q*q)*(q*q)/20-q*q)*(b*b*b)/6 end j=(h*(m+c
-*o)+g*p)*i+e k=(g*(m-o*c)-h*(o*d))*i else local l=math.sqrt(c*c-1)local m,n=-d*(c-l),-d*(c+l)local o=(g-h*m)/(2*d*l)
-local p=h-o local q,r=p*math.exp(m*b),o*math.exp(n*b)j=q+r+e k=q*m+r*n end local l=math.abs(k)<ae and math.abs(j-e)<af
-return{complete=l,value=l and e or j,velocity=k}end return ah end)()end,[147]=function()local aa,ab,ac=a(147)local ad
-return(function(...)return function()local ae,af=ac(ab.Parent.SingleMotor),ac(ab.Parent.Spring)describe(
-'completed state',function()local ag,ah=ae.new(0,false),af.new(1,{frequency=2,dampingRatio=0.75})ag:setGoal(ah)for aj=1,
-100 do ag:step(1.6666666666666665E-2)end it('should complete',function()expect(ag._state.complete).to.equal(true)end)it(
-'should be exactly the goal value when completed',function()expect(ag._state.value).to.equal(1)end)end)it(
-'should inherit velocity',function()local ag=ae.new(0,false)ag._state={complete=false,value=0,velocity=-5}local ah=af.
-new(1,{frequency=2,dampingRatio=1})ag:setGoal(ah)ag:step(1.6666666666666665E-2)expect(ag._state.velocity<0).to.equal(
-true)end)end end)()end,[148]=function()local aa,ab,ac=a(148)local ad return(function(...)local function ae(af)local ag=
-tostring(af):match'^Motor%((.+)%)$'if ag then return true,ag else return false end end return ae end)()end,[149]=
-function()local aa,ab,ac=a(149)local ad return(function(...)return function()local ae,af,ag=ac(ab.Parent.isMotor),ac(ab.
-Parent.SingleMotor),ac(ab.Parent.GroupMotor)local ah,aj=af.new(0),ag.new{}it('should properly detect motors',function()
-expect(ae(ah)).to.equal(true)expect(ae(aj)).to.equal(true)end)it("shouldn't detect things that aren't motors",function()
-expect(ae{}).to.equal(false)end)it('should return the proper motor type',function()local ak,b=ae(ah)local c,d=ae(aj)
-expect(b).to.equal'Single'expect(d).to.equal'Group'end)end end)()end},{{1,2,{'Fluent Renewed'},{{13,2,{'Elements'},{{14,
-2,{'Button'}},{15,2,{'Colorpicker'}},{20,2,{'Slider'}},{19,2,{'Paragraph'}},{17,2,{'Input'}},{18,2,{'Keybind'}},{21,2,{
-'Toggle'}},{16,2,{'Dropdown'}}}},{2,1,{'Components'},{{8,2,{'Section'}},{6,2,{'Element'}},{3,2,{'Assets'}},{12,2,{
-'Window'}},{10,2,{'Textbox'}},{7,2,{'Notification'}},{5,2,{'Dialog'}},{11,2,{'TitleBar'}},{9,2,{'Tab'}},{4,2,{'Button'}}
-}},{95,1,{'Packages'},{{98,2,{'Signal'}},{99,1,{'_Index'},{{125,1,{'lucasmzreal_fastsignal@10.4.0'},{{126,2,{
-'fastsignal'},{{127,2,{'Deferred'}},{131,2,{'wally'}},{130,2,{'Readme'}},{128,2,{'Docs'}},{129,2,{'Immediate'}}}}}},{132
-,1,{'reselim_flipper@2.0.0'},{{133,2,{'flipper'},{{147,2,{'Spring.spec'}},{149,2,{'isMotor.spec'}},{148,2,{'isMotor'}},{
-135,2,{'BaseMotor.spec'}},{143,2,{'Signal.spec'}},{136,2,{'GroupMotor'}},{146,2,{'Spring'}},{134,2,{'BaseMotor'}},{144,2
-,{'SingleMotor'}},{139,2,{'Instant.spec'}},{137,2,{'GroupMotor.spec'}},{145,2,{'SingleMotor.spec'}},{141,2,{
-'Linear.spec'}},{142,2,{'Signal'}},{138,2,{'Instant'}},{140,2,{'Linear'}}}}}},{103,1,{'littensy_ripple@0.9.3'},{{105,2,{
-'ripple'},{{108,2,{'createMotion.spec'}},{119,1,{'utils'},{{120,2,{'assign'}},{124,2,{'spy'}},{122,2,{'merge'}},{123,2,{
-'snapshot'}},{121,2,{'intermediate'}}}},{118,2,{'types'}},{107,2,{'createMotion'}},{109,1,{'solvers'},{{114,2,{'spring'}
-},{110,2,{'immediate'}},{113,2,{'linear.spec'}},{111,2,{'immediate.spec'}},{116,2,{'tween'}},{112,2,{'linear'}},{117,2,{
-'tween.spec'}},{115,2,{'spring.spec'}}}},{106,2,{'config'}}}},{104,2,{'Promise'}}}},{100,1,{'evaera_promise@4.0.0'},{{
-101,2,{'promise'},{{102,2,{'init.spec'}}}}}}}},{96,2,{'Flipper'}},{97,2,{'Ripple'}}}},{30,2,{'Themes'},{{54,2,{
-'GitHub Light Colorblind'}},{47,2,{'Elementary'}},{50,2,{'GitHub Dark Default'}},{78,2,{'VSC Dark Modern'}},{53,2,{
-'GitHub Dark'}},{66,2,{'OpalineHalo'}},{61,2,{'Monokai Classic'}},{84,2,{'VerdantGlass'}},{42,2,{'DuoTone Dark Earth'}},
-{93,2,{'Yaru Dark'}},{41,2,{'Darker'}},{32,2,{'Adapta Nokto'}},{58,2,{'Kimbie Dark'}},{71,2,{'Tomorrow Night Blue'}},{92
-,2,{'Vynixu'}},{45,2,{'DuoTone Dark Sky'}},{90,2,{'Viow Mars'}},{36,2,{'Amethyst'}},{44,2,{'DuoTone Dark Sea'}},{89,2,{
-'Viow Light'}},{88,2,{'Viow Flat'}},{81,2,{'VSC Light Modern'}},{52,2,{'GitHub Dark High Contrast'}},{38,2,{'Arc Dark'}}
-,{79,2,{'VSC Dark+'}},{83,2,{'VSC Red'}},{40,2,{'Dark'}},{56,2,{'GitHub Light High Contrast'}},{46,2,{
-'DuoTone Dark Space'}},{67,2,{'Quiet Light'}},{68,2,{'Rose'}},{31,2,{'Abyss'}},{74,2,{'United Ubuntu'}},{86,2,{
-'Viow Arabian'}},{64,2,{'Monokai'}},{33,2,{'Amberfall'}},{51,2,{'GitHub Dark Dimmed'}},{82,2,{'VSC Light+'}},{87,2,{
-'Viow Darker'}},{80,2,{'VSC Light High Contrast'}},{77,2,{'VSC Dark High Contrast'}},{69,2,{'Solarized Dark'}},{75,2,{
-'VS Dark'}},{85,2,{'Viow Arabian Mix'}},{62,2,{'Monokai Dimmed'}},{57,2,{'GitHub Light'}},{72,2,{'Typewriter'}},{73,2,{
-'United GNOME'}},{76,2,{'VS Light'}},{94,2,{'Yaru'}},{65,2,{'NeonTide'}},{70,2,{'Solarized Light'}},{43,2,{
-'DuoTone Dark Forest'}},{48,2,{'FrozenAurora'}},{34,2,{'Ambiance'}},{39,2,{'Dark Typewriter'}},{63,2,{'Monokai Vibrant'}
-},{91,2,{'Viow Neon'}},{60,2,{'MidnightPrism'}},{37,2,{'Aqua'}},{35,2,{'Amethyst Dark'}},{49,2,{'GitHub Dark Colorblind'
-}},{55,2,{'GitHub Light Default'}},{59,2,{'Light'}}}},{22,1,{'Modules'},{{29,2,{'Icons'}},{23,2,{'Acrylic'},{{24,2,{
-'AcrylicBlur'}},{26,2,{'CreateAcrylic'}},{27,2,{'Utils'}},{25,2,{'AcrylicPaint'}}}},{28,2,{'Creator'}}}}}}},'0.4.2',
-'WaxRuntime',string,task,setmetatable,error,next,table,unpack,coroutine,script,type,require,pcall,tostring,tonumber,
-_VERSION local m,n,o,p,q,r,s=b.insert,b.remove,b.freeze or function(m)return m end,d.wrap,ae.sub,ae.match,ae.gmatch if k
-and q(k,1,4)=='Lune'then local t,u=h(g,'@lune/task')if t and u then af=u end end local t=af and af.defer local u,v,w,x,y
-,z,A,B,C=t or function(u,...)p(u)(...)end,{[1]='Folder',[2]='ModuleScript',[3]='Script',[4]='LocalScript',[5]=
-'StringValue'},{},{},{},{},{},{},{}local D,E={GetFullName={{},function(D)local E,F=D.Name,D.Parent while F do E=F.Name..
-'.'..E F=F.Parent end return E end},GetChildren={{},function(D)local E={}for F in aj,C[D]do m(E,F)end return E end},
-GetDescendants={{},function(D)local E={}for F in aj,C[D]do m(E,F)for G,H in aj,F:GetDescendants()do m(E,H)end end return
-E end},FindFirstChild={{'string','boolean?'},function(D,E,F)local G=C[D]for H in aj,G do if H.Name==E then return H end
-end if F then for H in aj,G do return H:FindFirstChild(E,true)end end end},FindFirstAncestor={{'string'},function(D,E)
-local F=D.Parent while F do if F.Name==E then return F end F=F.Parent end end},WaitForChild={{'string','number?'},
-function(D,E)return D:FindFirstChild(E)end}},{}for F,G in aj,D do local H,I,J=G[1],G[2],{}for K,L in aj,H do local M,N=
-r(L,'^([^%?]+)(%??)')J[K]={M,N}end E[F]=function(K,...)if not C[K]then ah(
-"Expected ':' not '.' calling member function "..F,2)end local L={...}for M,N in aj,J do local O=L[M]local P,Q,R=f(O),N[
-1],N[2]if O==nil and not R then ah('Argument '..O..' missing or nil',3)end if Q~='any'and P~=Q and not(P=='nil'and R)
-then ah('Argument '..M..' expects type "'..Q..'", got "'..P..'"',2)end end return I(K,...)end end local function F(G,H,I
-)local J,K=(ag({},{__mode='k'}))local function L(M)ah(M..' is not a valid (virtual) member of '..G..' "'..H..'"',3)end
-local function M(N)ah('Unable to assign (virtual) property '..N..'. Property is read only',3)end local N,O={},{}O.
+(ag)return'Motor(Single)'end return af end)()end,[141]=function()local aa,ab,ac=a(141)local ad return(function(...)
+return function()local ae,af=ac(ab.Parent.SingleMotor),ac(ab.Parent.Linear)describe('completed state',function()local ag
+,ah=ae.new(0,false),af.new(1,{velocity=1})ag:setGoal(ah)for aj=1,60 do ag:step(1.6666666666666665E-2)end it(
+'should complete',function()expect(ag._state.complete).to.equal(true)end)it(
+'should be exactly the goal value when completed',function()expect(ag._state.value).to.equal(1)end)end)describe(
+'uncompleted state',function()local ag,ah=ae.new(0,false),af.new(1,{velocity=1})ag:setGoal(ah)for aj=1,59 do ag:step(
+1.6666666666666665E-2)end it('should be uncomplete',function()expect(ag._state.complete).to.equal(false)end)end)
+describe('negative velocity',function()local ag,ah=ae.new(1,false),af.new(0,{velocity=1})ag:setGoal(ah)for aj=1,60 do ag
+:step(1.6666666666666665E-2)end it('should complete',function()expect(ag._state.complete).to.equal(true)end)it(
+'should be exactly the goal value when completed',function()expect(ag._state.value).to.equal(0)end)end)end end)()end,[
+145]=function()local aa,ab,ac=a(145)local ad return(function(...)return function()local ae,af=ac(ab.Parent.SingleMotor),
+ac(ab.Parent.Instant)it('should assign new state on step',function()local ag=ae.new(0,false)ag:setGoal(af.new(5))ag:
+step(1.6666666666666665E-2)expect(ag._state.complete).to.equal(true)expect(ag._state.value).to.equal(5)end)it(
+[[should invoke onComplete listeners when the goal is completed]],function()local ag,ah=ae.new(0,false),false ag:
+onComplete(function()ah=true end)ag:setGoal(af.new(5))ag:step(1.6666666666666665E-2)expect(ah).to.equal(true)end)it(
+'should start when the goal is set',function()local ag,ah=ae.new(0,false),false ag:onStart(function()ah=not ah end)ag:
+setGoal(af.new(5))expect(ah).to.equal(true)ag:setGoal(af.new(5))expect(ah).to.equal(false)end)end end)()end},{{1,2,{
+'Fluent Renewed'},{{30,2,{'Themes'},{{34,2,{'Ambiance'}},{49,2,{'GitHub Dark Colorblind'}},{72,2,{'Typewriter'}},{94,2,{
+'Yaru'}},{43,2,{'DuoTone Dark Forest'}},{60,2,{'MidnightPrism'}},{84,2,{'VerdantGlass'}},{86,2,{'Viow Arabian'}},{92,2,{
+'Vynixu'}},{65,2,{'NeonTide'}},{68,2,{'Rose'}},{46,2,{'DuoTone Dark Space'}},{67,2,{'Quiet Light'}},{50,2,{
+'GitHub Dark Default'}},{66,2,{'OpalineHalo'}},{89,2,{'Viow Light'}},{88,2,{'Viow Flat'}},{69,2,{'Solarized Dark'}},{77,
+2,{'VSC Dark High Contrast'}},{48,2,{'FrozenAurora'}},{32,2,{'Adapta Nokto'}},{47,2,{'Elementary'}},{36,2,{'Amethyst'}},
+{62,2,{'Monokai Dimmed'}},{87,2,{'Viow Darker'}},{93,2,{'Yaru Dark'}},{85,2,{'Viow Arabian Mix'}},{71,2,{
+'Tomorrow Night Blue'}},{83,2,{'VSC Red'}},{91,2,{'Viow Neon'}},{81,2,{'VSC Light Modern'}},{80,2,{
+'VSC Light High Contrast'}},{79,2,{'VSC Dark+'}},{76,2,{'VS Light'}},{54,2,{'GitHub Light Colorblind'}},{31,2,{'Abyss'}}
+,{38,2,{'Arc Dark'}},{41,2,{'Darker'}},{58,2,{'Kimbie Dark'}},{75,2,{'VS Dark'}},{70,2,{'Solarized Light'}},{56,2,{
+'GitHub Light High Contrast'}},{35,2,{'Amethyst Dark'}},{74,2,{'United Ubuntu'}},{37,2,{'Aqua'}},{73,2,{'United GNOME'}}
+,{90,2,{'Viow Mars'}},{59,2,{'Light'}},{82,2,{'VSC Light+'}},{52,2,{'GitHub Dark High Contrast'}},{64,2,{'Monokai'}},{63
+,2,{'Monokai Vibrant'}},{33,2,{'Amberfall'}},{51,2,{'GitHub Dark Dimmed'}},{53,2,{'GitHub Dark'}},{61,2,{
+'Monokai Classic'}},{55,2,{'GitHub Light Default'}},{45,2,{'DuoTone Dark Sky'}},{44,2,{'DuoTone Dark Sea'}},{78,2,{
+'VSC Dark Modern'}},{42,2,{'DuoTone Dark Earth'}},{40,2,{'Dark'}},{39,2,{'Dark Typewriter'}},{57,2,{'GitHub Light'}}}},{
+22,1,{'Modules'},{{28,2,{'Creator'}},{23,2,{'Acrylic'},{{27,2,{'Utils'}},{24,2,{'AcrylicBlur'}},{25,2,{'AcrylicPaint'}},
+{26,2,{'CreateAcrylic'}}}},{29,2,{'Icons'}}}},{13,2,{'Elements'},{{16,2,{'Dropdown'}},{15,2,{'Colorpicker'}},{20,2,{
+'Slider'}},{14,2,{'Button'}},{21,2,{'Toggle'}},{17,2,{'Input'}},{19,2,{'Paragraph'}},{18,2,{'Keybind'}}}},{95,1,{
+'Packages'},{{99,1,{'_Index'},{{132,1,{'reselim_flipper@2.0.0'},{{133,2,{'flipper'},{{142,2,{'Signal'}},{144,2,{
+'SingleMotor'}},{148,2,{'isMotor'}},{139,2,{'Instant.spec'}},{147,2,{'Spring.spec'}},{143,2,{'Signal.spec'}},{137,2,{
+'GroupMotor.spec'}},{145,2,{'SingleMotor.spec'}},{136,2,{'GroupMotor'}},{138,2,{'Instant'}},{134,2,{'BaseMotor'}},{135,2
+,{'BaseMotor.spec'}},{140,2,{'Linear'}},{146,2,{'Spring'}},{141,2,{'Linear.spec'}},{149,2,{'isMotor.spec'}}}}}},{100,1,{
+'evaera_promise@4.0.0'},{{101,2,{'promise'},{{102,2,{'init.spec'}}}}}},{125,1,{'lucasmzreal_fastsignal@10.4.0'},{{126,2,
+{'fastsignal'},{{129,2,{'Immediate'}},{128,2,{'Docs'}},{131,2,{'wally'}},{127,2,{'Deferred'}},{130,2,{'Readme'}}}}}},{
+103,1,{'littensy_ripple@0.9.3'},{{105,2,{'ripple'},{{108,2,{'createMotion.spec'}},{106,2,{'config'}},{109,1,{'solvers'},
+{{115,2,{'spring.spec'}},{114,2,{'spring'}},{116,2,{'tween'}},{110,2,{'immediate'}},{117,2,{'tween.spec'}},{113,2,{
+'linear.spec'}},{111,2,{'immediate.spec'}},{112,2,{'linear'}}}},{118,2,{'types'}},{119,1,{'utils'},{{124,2,{'spy'}},{122
+,2,{'merge'}},{120,2,{'assign'}},{121,2,{'intermediate'}},{123,2,{'snapshot'}}}},{107,2,{'createMotion'}}}},{104,2,{
+'Promise'}}}}}},{98,2,{'Signal'}},{97,2,{'Ripple'}},{96,2,{'Flipper'}}}},{2,1,{'Components'},{{4,2,{'Button'}},{7,2,{
+'Notification'}},{12,2,{'Window'}},{6,2,{'Element'}},{3,2,{'Assets'}},{11,2,{'TitleBar'}},{10,2,{'Textbox'}},{9,2,{'Tab'
+}},{8,2,{'Section'}},{5,2,{'Dialog'}}}}}}},'0.4.2','WaxRuntime',string,task,setmetatable,error,next,table,unpack,
+coroutine,script,type,require,pcall,tostring,tonumber,_VERSION local m,n,o,p,q,r,s=b.insert,b.remove,b.freeze or
+function(m)return m end,d.wrap,ae.sub,ae.match,ae.gmatch if k and q(k,1,4)=='Lune'then local t,u=h(g,'@lune/task')if t
+and u then af=u end end local t=af and af.defer local u,v,w,x,y,z,A,B,C=t or function(u,...)p(u)(...)end,{[1]='Folder',[
+2]='ModuleScript',[3]='Script',[4]='LocalScript',[5]='StringValue'},{},{},{},{},{},{},{}local D,E={GetFullName={{},
+function(D)local E,F=D.Name,D.Parent while F do E=F.Name..'.'..E F=F.Parent end return E end},GetChildren={{},function(D
+)local E={}for F in aj,C[D]do m(E,F)end return E end},GetDescendants={{},function(D)local E={}for F in aj,C[D]do m(E,F)
+for G,H in aj,F:GetDescendants()do m(E,H)end end return E end},FindFirstChild={{'string','boolean?'},function(D,E,F)
+local G=C[D]for H in aj,G do if H.Name==E then return H end end if F then for H in aj,G do return H:FindFirstChild(E,
+true)end end end},FindFirstAncestor={{'string'},function(D,E)local F=D.Parent while F do if F.Name==E then return F end
+F=F.Parent end end},WaitForChild={{'string','number?'},function(D,E)return D:FindFirstChild(E)end}},{}for F,G in aj,D do
+local H,I,J=G[1],G[2],{}for K,L in aj,H do local M,N=r(L,'^([^%?]+)(%??)')J[K]={M,N}end E[F]=function(K,...)if not C[K]
+then ah("Expected ':' not '.' calling member function "..F,2)end local L={...}for M,N in aj,J do local O=L[M]local P,Q,R
+=f(O),N[1],N[2]if O==nil and not R then ah('Argument '..O..' missing or nil',3)end if Q~='any'and P~=Q and not(P=='nil'
+and R)then ah('Argument '..M..' expects type "'..Q..'", got "'..P..'"',2)end end return I(K,...)end end local function F
+(G,H,I)local J,K=(ag({},{__mode='k'}))local function L(M)ah(M..' is not a valid (virtual) member of '..G..' "'..H..'"',3
+)end local function M(N)ah('Unable to assign (virtual) property '..N..'. Property is read only',3)end local N,O={},{}O.
 __metatable=false O.__index=function(P,Q)if Q=='ClassName'then return G elseif Q=='Name'then return H elseif Q=='Parent'
 then return I elseif G=='StringValue'and Q=='Value'then return K else local R=E[Q]if R then return R end end for R in aj
 ,J do if R.Name==Q then return R end end L(Q)end O.__newindex=function(P,Q,R)if Q=='ClassName'then M(Q)elseif Q=='Name'

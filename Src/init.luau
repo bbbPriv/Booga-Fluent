@@ -399,14 +399,12 @@ end
 
 function Library:ToggleAcrylic(Value: boolean)
 	if Library.CreatedWindow then
-		if Library.UseAcrylic then
-			Library.Acrylic = Value
-			Library.CreatedWindow.AcrylicPaint.Model.Transparency = Value and 0.98 or 1
-			if Value then
-				Acrylic.Enable()
-			else
-				Acrylic.Disable()
-			end
+		Library.Acrylic = Value
+		Library.CreatedWindow.AcrylicPaint.Model.Transparency = Value and 0.98 or 1
+		if Value then
+			Acrylic.Enable()
+		else
+			Acrylic.Disable()
 		end
 	end
 end
