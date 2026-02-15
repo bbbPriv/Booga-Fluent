@@ -3,7 +3,14 @@ local Creator = require(Root.Modules.Creator)
 local createAcrylic = require(script.Parent.CreateAcrylic)
 local viewportPointToWorld, getOffset = unpack(require(script.Parent.Utils))
 
-local BlurFolder = Instance.new("Folder", game:GetService("Workspace").CurrentCamera)
+local BlurFolder = nil
+
+local function getBlurFolder()
+	if not BlurFolder then
+		BlurFolder = Instance.new("Folder", game:GetService("Workspace").CurrentCamera)
+	end
+	return BlurFolder
+end
 
 local function createAcrylicBlur(distance)
 	local cleanups = {}
@@ -17,7 +24,7 @@ local function createAcrylicBlur(distance)
 	local model = createAcrylic()
 	local mesh = model:FindFirstChildWhichIsA("SpecialMesh")
 
-	model.Parent = BlurFolder
+	model.Parent = getBlurFolder()
 
 	local function updatePositions(size, position)
 		positions.topLeft = position
