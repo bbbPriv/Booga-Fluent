@@ -106,15 +106,11 @@ return function(props)
 		}),
 	})
 
-	local Blur
-
-	if require(Root).UseAcrylic then
-		Blur = AcrylicBlur()
-		Blur.Frame.Parent = AcrylicPaint.Frame
-		AcrylicPaint.Model = Blur.Model
-		AcrylicPaint.AddParent = Blur.AddParent
-		AcrylicPaint.SetVisibility = Blur.SetVisibility
-	end
+	local Blur = AcrylicBlur()
+	Blur.Frame.Parent = AcrylicPaint.Frame
+	AcrylicPaint.Model = Blur.Model
+	AcrylicPaint.AddParent = Blur.AddParent
+	AcrylicPaint.SetVisibility = Blur.SetVisibility
 
 	return AcrylicPaint
 end

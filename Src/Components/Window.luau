@@ -158,9 +158,7 @@ return function(Config)
 		Window = Window,
 	})
 
-	if Library.UseAcrylic then
-		Window.AcrylicPaint.AddParent(Window.Root)
-	end
+	Window.AcrylicPaint.AddParent(Window.Root)
 
 	local SizeMotor = Flipper.GroupMotor.new({
 		X = Window.Size.X.Offset,
@@ -419,7 +417,7 @@ return function(Config)
 	end
 
 	function Window:Destroy()
-		if Library.UseAcrylic then
+		if Window.AcrylicPaint.Model then
 			Window.AcrylicPaint.Model:Destroy()
 		end
 		Window.Root:Destroy()
