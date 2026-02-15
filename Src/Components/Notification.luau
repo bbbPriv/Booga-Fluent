@@ -200,7 +200,7 @@ function Notification:New(Config)
 					Offset = Spring(60, { frequency = 5 }),
 				})
 				task.wait(0.4)
-				if require(Root).UseAcrylic then
+				if NewNotification.AcrylicPaint.Model then
 					NewNotification.AcrylicPaint.Model:Destroy()
 				end
 				NewNotification.Holder:Destroy()
