@@ -70,7 +70,7 @@ return function(Title, Desc, Parent, Hover, Config)
 	}) :: UIStroke
 
 	Element.Frame = New("TextButton", {
-		Visible = Config.Visible or true,
+		Visible = Config.Visible,
 		Size = UDim2.new(1, 0, 0, 0),
 		BackgroundTransparency = 0.89,
 		BackgroundColor3 = Color3.fromRGB(130, 130, 130),
