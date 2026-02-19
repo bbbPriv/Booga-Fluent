@@ -12,7 +12,7 @@ function Element:New(Config)
 	assert(Config.Title, "Button - Missing Title")
 	Config.Callback = Config.Callback or function() end
 
-	local ButtonFrame = require(Components.Element)(Config.Title, Config.Description, self.Container, true, {Callback = Config.Callback or function() end})
+	local ButtonFrame = require(Components.Element)(Config.Title, Config.Description, self.Container, true, {Callback = Config.Callback or function() end, Visible = Config.Visible})
 
 	local ButtonIco = New("ImageLabel", {
 		Size = UDim2.fromOffset(16, 16),

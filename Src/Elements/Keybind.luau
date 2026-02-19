@@ -24,7 +24,7 @@ function Element:New(Idx, Config)
 
 	local Picking = false
 
-	local KeybindFrame = require(Components.Element)(Config.Title or "Keybind", Config.Description, self.Container, true)
+	local KeybindFrame = require(Components.Element)(Config.Title or "Keybind", Config.Description, self.Container, true, {Visible = Config.Visible})
 
 	Keybind.SetTitle = KeybindFrame.SetTitle
 	Keybind.SetDesc = KeybindFrame.SetDesc

@@ -18,7 +18,8 @@ function Element:New(Idx, Config)
 
 	local ParagraphFrame = require(Components.Element)(Config.Title, Paragraph.Value, self.Container, false, {
 		TitleAlignment = Config.TitleAlignment == "Middle" and "Center" or Config.TitleAlignment,
-		DescriptionAlignment = Config.ContentAlignment == "Middle" and "Center" or Config.ContentAlignment
+		DescriptionAlignment = Config.ContentAlignment == "Middle" and "Center" or Config.ContentAlignment,
+		Visible = Config.Visible
 	})
 
 	ParagraphFrame.Frame.BackgroundTransparency = 0.92

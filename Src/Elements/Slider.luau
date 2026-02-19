@@ -25,7 +25,7 @@ function Element:New(Idx, Config)
 
 	local Dragging = false
 
-	local SliderFrame = require(Components.Element)(Config.Title or "Slider", Config.Description, self.Container, false)
+	local SliderFrame = require(Components.Element)(Config.Title or "Slider", Config.Description, self.Container, false, {Visible = Config.Visible})
 	SliderFrame.DescLabel.Size = UDim2.new(1, -170, 0, 14)
 
 	Slider.SetTitle = SliderFrame.SetTitle
