@@ -24,6 +24,7 @@ function Element:New(Idx, Config)
 	ParagraphFrame.Frame.BackgroundTransparency = 0.92
 	ParagraphFrame.Border.Transparency = 0.6
 
+	Paragraph.SetVisible = ParagraphFrame.SetVisible
 
 	function Paragraph:OnChanged(Func)
 		Paragraph.Changed = Func

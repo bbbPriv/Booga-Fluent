@@ -48,6 +48,7 @@ function Element:New(Idx, Config)
 
 	Dropdown.SetTitle = DropdownFrame.SetTitle
 	Dropdown.SetDesc = DropdownFrame.SetDesc
+	Dropdown.SetVisible = DropdownFrame.SetVisible
 
 	local DropdownDisplay = New("TextLabel", {
 		FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),

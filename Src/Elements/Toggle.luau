@@ -24,6 +24,7 @@ function Element:New(Idx, Config)
 
 	Toggle.SetTitle = ToggleFrame.SetTitle
 	Toggle.SetDesc = ToggleFrame.SetDesc
+	Toggle.SetVisible = ToggleFrame.SetVisible
 
 	local ToggleCircle = New("ImageLabel", {
 		AnchorPoint = Vector2.new(0, 0.5),

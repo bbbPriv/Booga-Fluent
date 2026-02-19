@@ -30,6 +30,7 @@ function Element:New(Idx, Config)
 
 	Slider.SetTitle = SliderFrame.SetTitle
 	Slider.SetDesc = SliderFrame.SetDesc
+	Slider.SetVisible = SliderFrame.SetVisible
 
 	local SliderDot = New("ImageLabel", {
 		AnchorPoint = Vector2.new(0, 0.5),

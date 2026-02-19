@@ -28,6 +28,7 @@ function Element:New(Idx, Config)
 
 	Keybind.SetTitle = KeybindFrame.SetTitle
 	Keybind.SetDesc = KeybindFrame.SetDesc
+	Keybind.SetVisible = KeybindFrame.SetVisible
 
 	local KeybindDisplayLabel = New("TextLabel", {
 		FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
