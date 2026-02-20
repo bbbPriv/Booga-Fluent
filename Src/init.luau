@@ -117,6 +117,7 @@ local Library = {
 
 	OpenFrames = {},
 	Options = {},
+	Buttons = {},
 	Themes = Themes.Names,
 
 	OnUnload = Signal.new(),

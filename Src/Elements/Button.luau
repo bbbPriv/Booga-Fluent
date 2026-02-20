@@ -9,6 +9,7 @@ Element.__index = Element
 Element.__type = "Button"
 
 function Element:New(Config)
+	local Library = self.Library
 	assert(Config.Title, "Button - Missing Title")
 	Config.Callback = Config.Callback or function() end
 
@@ -25,14 +26,25 @@ function Element:New(Config)
 		}
 	}) :: ImageLabel
 
-	self.Library.Utilities.Icons:SetIcon(ButtonIco, "chevron-right")
+	Library.Utilities.Icons:SetIcon(ButtonIco, "chevron-right")
 
 	Creator.AddSignal(ButtonFrame.Frame.MouseButton1Click, function()
 		if typeof(Config.Callback) == "function" then
-			self.Library:SafeCallback(Config.Callback, Config.Value)
+			Library:SafeCallback(Config.Callback, Config.Value)
 		end
 	end)
 
+	function ButtonFrame:Destroy()
+		ButtonFrame.Frame:Destroy()
+
+		for i, v in ipairs(Library.Buttons) do
+			if v == ButtonFrame then
+				table.remove(Library.Buttons, i)
+			end
+		end
+	end
+
+	table.insert(Library.Buttons, ButtonFrame)
 	ButtonFrame.Instance = ButtonFrame
 
 	return ButtonFrame
