@@ -8,7 +8,7 @@ local Element = {}
 Element.__index = Element
 Element.__type = "Button"
 
-function Element:New(Config)
+function Element:New(Idx, Config)
 	local Library = self.Library
 	assert(Config.Title, "Button - Missing Title")
 	Config.Callback = Config.Callback or function() end
@@ -36,15 +36,10 @@ function Element:New(Config)
 
 	function ButtonFrame:Destroy()
 		ButtonFrame.Frame:Destroy()
-
-		for i, v in ipairs(Library.Buttons) do
-			if v == ButtonFrame then
-				table.remove(Library.Buttons, i)
-			end
-		end
+		Library.Buttons[Idx] = nil
 	end
 
-	table.insert(Library.Buttons, ButtonFrame)
+	Library.Buttons[Idx] = ButtonFrame
 	ButtonFrame.Instance = ButtonFrame
 
 	return ButtonFrame
