@@ -100,6 +100,7 @@ return function(Config)
 	})
 
 	TitleBar.Title = New("TextLabel", {
+		LayoutOrder = 1,
 		RichText = true,
 		Text = Config.Title,
 		Parent = TitleBar.TitleHolder,
@@ -120,6 +121,7 @@ return function(Config)
 	})
 
 	TitleBar.SubTitle = New("TextLabel", {
+		LayoutOrder = 2,
 		RichText = true,
 		Text = Config.SubTitle,
 		Parent = TitleBar.TitleHolder,

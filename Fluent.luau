@@ -240,22 +240,23 @@ MouseLeave,function()u(1,true)end)i(s.Frame.MouseButton1Down,function()u(0.96)en
 BackgroundTransparency=1,Parent=j.Parent},{h('Frame',{BackgroundTransparency=0.5,Size=UDim2.new(1,0,0,1),Position=UDim2.
 new(0,0,1,0),ThemeTag={BackgroundColor3='TitleBarLine'}})})k.TitleHolder=h('Frame',{Size=UDim2.new(1,-16,1,0),Parent=k.
 Frame,Position=UDim2.new(0,16,0,0),BackgroundTransparency=1},{h('UIListLayout',{Padding=UDim.new(0,5),FillDirection=Enum
-.FillDirection.Horizontal,SortOrder=Enum.SortOrder.LayoutOrder})})k.Title=h('TextLabel',{RichText=true,Text=j.Title,
-Parent=k.TitleHolder,FontFace=Font.new('rbxasset://fonts/families/GothamSSm.json',Enum.FontWeight.Regular,Enum.FontStyle
-.Normal),TextSize=12,TextXAlignment='Left',TextYAlignment='Center',Size=UDim2.fromScale(0,1),AutomaticSize=Enum.
-AutomaticSize.X,BackgroundTransparency=1,ThemeTag={TextColor3='Text'}})k.SubTitle=h('TextLabel',{RichText=true,Text=j.
-SubTitle,Parent=k.TitleHolder,TextTransparency=0.4,FontFace=Font.new('rbxasset://fonts/families/GothamSSm.json',Enum.
-FontWeight.Regular,Enum.FontStyle.Normal),TextSize=12,TextXAlignment='Left',TextYAlignment='Center',Size=UDim2.
-fromScale(0,1),AutomaticSize=Enum.AutomaticSize.X,BackgroundTransparency=1,ThemeTag={TextColor3='Text'}})k.CloseButton=
-m(l.Utilities:GetIcon'Close',UDim2.new(1,-4,0,4),k.Frame,0,function()l.CreatedWindow:Dialog{Title='Close',Content=
-'Are you sure you want to unload the interface?',Buttons={{Title='Yes',Callback=l.Destroy},{Title='No'}}}end)k.MaxButton
-=m(l.Utilities:GetIcon'Max',UDim2.new(1,-40,0,4),k.Frame,0,function()j.Window.Maximize(not j.Window.Maximized)end)k.
-MinButton=m(l.Utilities:GetIcon'Min',UDim2.new(1,-80,0,4),k.Frame,0,function()j.Window:Minimize()end)return k end end)()
-end,[12]=function()local b,c,d=a(12)local e return(function(...)local f=c.Parent.Parent local g,h,i,j,k,l,m=d(f.Packages
-.Flipper),d(f.Modules.Creator),d(f.Modules.Acrylic),d(f.Packages.Signal),d(c.Parent.Assets),c.Parent,d(f)local n,o,p,q,r
-,s=m.Utilities:Clone(game:GetService'UserInputService'),m.Utilities:Clone(game:GetService'Players').LocalPlayer:
-GetMouse(),m.Utilities:Clone(game:GetService'Workspace').CurrentCamera,g.Spring.new,g.Instant.new,h.New return function(
-t)assert(typeof(t.Mobile)=='table',"Config key 'Mobile' must be a table!")assert(typeof(t.Mobile.GetIcon)=='function',
+.FillDirection.Horizontal,SortOrder=Enum.SortOrder.LayoutOrder})})k.Title=h('TextLabel',{LayoutOrder=1,RichText=true,
+Text=j.Title,Parent=k.TitleHolder,FontFace=Font.new('rbxasset://fonts/families/GothamSSm.json',Enum.FontWeight.Regular,
+Enum.FontStyle.Normal),TextSize=12,TextXAlignment='Left',TextYAlignment='Center',Size=UDim2.fromScale(0,1),AutomaticSize
+=Enum.AutomaticSize.X,BackgroundTransparency=1,ThemeTag={TextColor3='Text'}})k.SubTitle=h('TextLabel',{LayoutOrder=2,
+RichText=true,Text=j.SubTitle,Parent=k.TitleHolder,TextTransparency=0.4,FontFace=Font.new(
+'rbxasset://fonts/families/GothamSSm.json',Enum.FontWeight.Regular,Enum.FontStyle.Normal),TextSize=12,TextXAlignment=
+'Left',TextYAlignment='Center',Size=UDim2.fromScale(0,1),AutomaticSize=Enum.AutomaticSize.X,BackgroundTransparency=1,
+ThemeTag={TextColor3='Text'}})k.CloseButton=m(l.Utilities:GetIcon'Close',UDim2.new(1,-4,0,4),k.Frame,0,function()l.
+CreatedWindow:Dialog{Title='Close',Content='Are you sure you want to unload the interface?',Buttons={{Title='Yes',
+Callback=l.Destroy},{Title='No'}}}end)k.MaxButton=m(l.Utilities:GetIcon'Max',UDim2.new(1,-40,0,4),k.Frame,0,function()j.
+Window.Maximize(not j.Window.Maximized)end)k.MinButton=m(l.Utilities:GetIcon'Min',UDim2.new(1,-80,0,4),k.Frame,0,
+function()j.Window:Minimize()end)return k end end)()end,[12]=function()local b,c,d=a(12)local e return(function(...)
+local f=c.Parent.Parent local g,h,i,j,k,l,m=d(f.Packages.Flipper),d(f.Modules.Creator),d(f.Modules.Acrylic),d(f.Packages
+.Signal),d(c.Parent.Assets),c.Parent,d(f)local n,o,p,q,r,s=m.Utilities:Clone(game:GetService'UserInputService'),m.
+Utilities:Clone(game:GetService'Players').LocalPlayer:GetMouse(),m.Utilities:Clone(game:GetService'Workspace').
+CurrentCamera,g.Spring.new,g.Instant.new,h.New return function(t)assert(typeof(t.Mobile)=='table',
+"Config key 'Mobile' must be a table!")assert(typeof(t.Mobile.GetIcon)=='function',
 "Mobile Config key 'GetIcon' must be a function!")assert(typeof(t.Mobile.Size)=='UDim2',
 "Mobile Config key 'Size' must be a UDim2!")local u,v,w,x,y={CreatedAt=tick(),Minimized=false,OnMinimized=j.new(),
 PostMinimized=j.new(),Maximized=false,OnMaximized=j.new(),PostMaximized=j.new(),Size=t.Size,MinSize=t.MinSize,CurrentPos
@@ -339,28 +340,27 @@ GetPropertyChangedSignal'CanvasPosition',function()L=Q:GetCurrentTabPos()+16 M=0
 GetCurrentTabPos()))end)return u end end)()end,[13]=function()local b,c,d=a(13)local e return(function(...)local f={}for
 g,h in next,c:GetChildren()do f[#f+1]=d(h)end return f end)()end,[14]=function()local b,c,d=a(14)local e return(function
 (...)local f=c.Parent.Parent local g=d(f.Modules.Creator)local h,i,j=g.New,f.Components,{}j.__index=j j.__type='Button'
-function j.New(k,l)local m=k.Library assert(l.Title,'Button - Missing Title')l.Callback=l.Callback or function()end
-local n=d(i.Element)(l.Title,l.Description,k.Container,true,{Callback=l.Callback or function()end,Visible=l.Visible})
-local o=h('ImageLabel',{Size=UDim2.fromOffset(16,16),AnchorPoint=Vector2.new(1,0.5),Position=UDim2.new(1,-10,0.5,0),
-BackgroundTransparency=1,Parent=n.Frame,ThemeTag={ImageColor3='Text'}})::ImageLabel m.Utilities.Icons:SetIcon(o,
-'chevron-right')g.AddSignal(n.Frame.MouseButton1Click,function()if typeof(l.Callback)=='function'then m:SafeCallback(l.
-Callback,l.Value)end end)function n.Destroy(p)n.Frame:Destroy()for q,r in ipairs(m.Buttons)do if r==n then table.remove(
-m.Buttons,q)end end end table.insert(m.Buttons,n)n.Instance=n return n end return j end)()end,[15]=function()local b,c,d
-=a(15)local e return(function(...)local f=game:GetService'Players'local g=f.LocalPlayer local h,i=g:GetMouse(),c.Parent.
-Parent local j=d(i.Modules.Creator)local k,l,m=j.New,i.Components,{}m.__index=m m.__type='Colorpicker'function m.New(n,o
-,p)local q=n.Library assert(p.Title,'Colorpicker - Missing Title')assert(p.Default,
-'AddColorPicker: Missing default value.')local r={Value=p.Default or p.Value,Transparency=p.Transparency or 0,
-UpdateOnChange=p.UpdateOnChange or p.UpdateWhileSliding or false,Type='Colorpicker',Title=type(p.Title)=='string'and p.
-Title or'Colorpicker',Callback=p.Callback or function(r)end}function r.SetHSVFromRGB(s,t)local u,v,w=Color3.toHSV(t)r.
-Hue=u r.Sat=v r.Vib=w end r:SetHSVFromRGB(r.Value)local s=d(l.Element)(p.Title,p.Description,n.Container,true,{Visible=p
-.Visible})r.SetTitle=s.SetTitle r.SetDesc=s.SetDesc r.SetVisible=s.SetVisible local t=k('Frame',{Size=UDim2.fromScale(1,
-1),BackgroundColor3=r.Value,Parent=s.Frame},{k('UICorner',{CornerRadius=UDim.new(0,4)})})::Frame local u=k('ImageLabel',
-{Size=UDim2.fromOffset(26,26),Position=UDim2.new(1,-10,0.5,0),AnchorPoint=Vector2.new(1,0.5),Parent=s.Frame,Image=
-'http://www.roblox.com/asset/?id=14204231522',ImageTransparency=0.45,ScaleType=Enum.ScaleType.Tile,TileSize=UDim2.
-fromOffset(40,40)},{k('UICorner',{CornerRadius=UDim.new(0,4)}),t})::ImageLabel local function v()local w=d(l.Dialog):
-Create()w.Title.Text=r.Title w.Root.Size=UDim2.fromOffset(430,330)local x,y,z,A,B,C,D,E=r.Hue,r.Sat,r.Vib,r.Transparency
-,r.Hue,r.Sat,r.Vib,r.Transparency local function F()local G=d(l.Textbox)()G.Frame.Parent=w.Root G.Frame.Size=UDim2.new(0
-,90,0,32)return G end local function G(H,I):TextLabel return k('TextLabel',{FontFace=Font.new(
+function j.New(k,l,m)local n=k.Library assert(m.Title,'Button - Missing Title')m.Callback=m.Callback or function()end
+local o=d(i.Element)(m.Title,m.Description,k.Container,true,{Callback=m.Callback or function()end,Visible=m.Visible})
+local p=h('ImageLabel',{Size=UDim2.fromOffset(16,16),AnchorPoint=Vector2.new(1,0.5),Position=UDim2.new(1,-10,0.5,0),
+BackgroundTransparency=1,Parent=o.Frame,ThemeTag={ImageColor3='Text'}})::ImageLabel n.Utilities.Icons:SetIcon(p,
+'chevron-right')g.AddSignal(o.Frame.MouseButton1Click,function()if typeof(m.Callback)=='function'then n:SafeCallback(m.
+Callback,m.Value)end end)function o.Destroy(q)o.Frame:Destroy()n.Buttons[l]=nil end n.Buttons[l]=o o.Instance=o return o
+end return j end)()end,[15]=function()local b,c,d=a(15)local e return(function(...)local f=game:GetService'Players'local
+g=f.LocalPlayer local h,i=g:GetMouse(),c.Parent.Parent local j=d(i.Modules.Creator)local k,l,m=j.New,i.Components,{}m.
+__index=m m.__type='Colorpicker'function m.New(n,o,p)local q=n.Library assert(p.Title,'Colorpicker - Missing Title')
+assert(p.Default,'AddColorPicker: Missing default value.')local r={Value=p.Default or p.Value,Transparency=p.
+Transparency or 0,UpdateOnChange=p.UpdateOnChange or p.UpdateWhileSliding or false,Type='Colorpicker',Title=type(p.Title
+)=='string'and p.Title or'Colorpicker',Callback=p.Callback or function(r)end}function r.SetHSVFromRGB(s,t)local u,v,w=
+Color3.toHSV(t)r.Hue=u r.Sat=v r.Vib=w end r:SetHSVFromRGB(r.Value)local s=d(l.Element)(p.Title,p.Description,n.
+Container,true,{Visible=p.Visible})r.SetTitle=s.SetTitle r.SetDesc=s.SetDesc r.SetVisible=s.SetVisible local t=k('Frame'
+,{Size=UDim2.fromScale(1,1),BackgroundColor3=r.Value,Parent=s.Frame},{k('UICorner',{CornerRadius=UDim.new(0,4)})})::
+Frame local u=k('ImageLabel',{Size=UDim2.fromOffset(26,26),Position=UDim2.new(1,-10,0.5,0),AnchorPoint=Vector2.new(1,0.5
+),Parent=s.Frame,Image='http://www.roblox.com/asset/?id=14204231522',ImageTransparency=0.45,ScaleType=Enum.ScaleType.
+Tile,TileSize=UDim2.fromOffset(40,40)},{k('UICorner',{CornerRadius=UDim.new(0,4)}),t})::ImageLabel local function v()
+local w=d(l.Dialog):Create()w.Title.Text=r.Title w.Root.Size=UDim2.fromOffset(430,330)local x,y,z,A,B,C,D,E=r.Hue,r.Sat,
+r.Vib,r.Transparency,r.Hue,r.Sat,r.Vib,r.Transparency local function F()local G=d(l.Textbox)()G.Frame.Parent=w.Root G.
+Frame.Size=UDim2.new(0,90,0,32)return G end local function G(H,I):TextLabel return k('TextLabel',{FontFace=Font.new(
 'rbxasset://fonts/families/GothamSSm.json',Enum.FontWeight.Medium,Enum.FontStyle.Normal),Text=H,TextColor3=Color3.
 fromRGB(240,240,240),TextSize=13,TextXAlignment=Enum.TextXAlignment.Left,Size=UDim2.new(1,0,0,32),Position=I,
 BackgroundTransparency=1,Parent=w.Root,ThemeTag={TextColor3='Text'}})::TextLabel end local function H()local I=Color3.
@@ -11204,63 +11204,63 @@ function()local aa,ab,ac=a(149)local ad return(function(...)return function()loc
 Parent.SingleMotor),ac(ab.Parent.GroupMotor)local ah,aj=af.new(0),ag.new{}it('should properly detect motors',function()
 expect(ae(ah)).to.equal(true)expect(ae(aj)).to.equal(true)end)it("shouldn't detect things that aren't motors",function()
 expect(ae{}).to.equal(false)end)it('should return the proper motor type',function()local ak,b=ae(ah)local c,d=ae(aj)
-expect(b).to.equal'Single'expect(d).to.equal'Group'end)end end)()end},{{1,2,{'Fluent Renewed'},{{22,1,{'Modules'},{{29,2
-,{'Icons'}},{23,2,{'Acrylic'},{{25,2,{'AcrylicPaint'}},{26,2,{'CreateAcrylic'}},{27,2,{'Utils'}},{24,2,{'AcrylicBlur'}}}
-},{28,2,{'Creator'}}}},{13,2,{'Elements'},{{14,2,{'Button'}},{20,2,{'Slider'}},{16,2,{'Dropdown'}},{17,2,{'Input'}},{15,
-2,{'Colorpicker'}},{21,2,{'Toggle'}},{19,2,{'Paragraph'}},{18,2,{'Keybind'}}}},{95,1,{'Packages'},{{99,1,{'_Index'},{{
-132,1,{'reselim_flipper@2.0.0'},{{133,2,{'flipper'},{{135,2,{'BaseMotor.spec'}},{138,2,{'Instant'}},{141,2,{
-'Linear.spec'}},{143,2,{'Signal.spec'}},{137,2,{'GroupMotor.spec'}},{134,2,{'BaseMotor'}},{146,2,{'Spring'}},{147,2,{
-'Spring.spec'}},{148,2,{'isMotor'}},{145,2,{'SingleMotor.spec'}},{140,2,{'Linear'}},{139,2,{'Instant.spec'}},{144,2,{
-'SingleMotor'}},{142,2,{'Signal'}},{136,2,{'GroupMotor'}},{149,2,{'isMotor.spec'}}}}}},{125,1,{
-'lucasmzreal_fastsignal@10.4.0'},{{126,2,{'fastsignal'},{{129,2,{'Immediate'}},{128,2,{'Docs'}},{127,2,{'Deferred'}},{
-130,2,{'Readme'}},{131,2,{'wally'}}}}}},{100,1,{'evaera_promise@4.0.0'},{{101,2,{'promise'},{{102,2,{'init.spec'}}}}}},{
-103,1,{'littensy_ripple@0.9.3'},{{104,2,{'Promise'}},{105,2,{'ripple'},{{118,2,{'types'}},{119,1,{'utils'},{{120,2,{
-'assign'}},{123,2,{'snapshot'}},{121,2,{'intermediate'}},{122,2,{'merge'}},{124,2,{'spy'}}}},{108,2,{'createMotion.spec'
-}},{109,1,{'solvers'},{{113,2,{'linear.spec'}},{117,2,{'tween.spec'}},{116,2,{'tween'}},{112,2,{'linear'}},{111,2,{
-'immediate.spec'}},{114,2,{'spring'}},{115,2,{'spring.spec'}},{110,2,{'immediate'}}}},{106,2,{'config'}},{107,2,{
-'createMotion'}}}}}}}},{97,2,{'Ripple'}},{98,2,{'Signal'}},{96,2,{'Flipper'}}}},{30,2,{'Themes'},{{50,2,{
-'GitHub Dark Default'}},{94,2,{'Yaru'}},{40,2,{'Dark'}},{66,2,{'OpalineHalo'}},{85,2,{'Viow Arabian Mix'}},{37,2,{'Aqua'
-}},{58,2,{'Kimbie Dark'}},{80,2,{'VSC Light High Contrast'}},{63,2,{'Monokai Vibrant'}},{91,2,{'Viow Neon'}},{82,2,{
-'VSC Light+'}},{41,2,{'Darker'}},{62,2,{'Monokai Dimmed'}},{57,2,{'GitHub Light'}},{71,2,{'Tomorrow Night Blue'}},{42,2,
-{'DuoTone Dark Earth'}},{88,2,{'Viow Flat'}},{87,2,{'Viow Darker'}},{54,2,{'GitHub Light Colorblind'}},{86,2,{
-'Viow Arabian'}},{33,2,{'Amberfall'}},{84,2,{'VerdantGlass'}},{31,2,{'Abyss'}},{83,2,{'VSC Red'}},{60,2,{'MidnightPrism'
-}},{39,2,{'Dark Typewriter'}},{49,2,{'GitHub Dark Colorblind'}},{61,2,{'Monokai Classic'}},{46,2,{'DuoTone Dark Space'}}
-,{90,2,{'Viow Mars'}},{51,2,{'GitHub Dark Dimmed'}},{81,2,{'VSC Light Modern'}},{64,2,{'Monokai'}},{56,2,{
-'GitHub Light High Contrast'}},{93,2,{'Yaru Dark'}},{79,2,{'VSC Dark+'}},{72,2,{'Typewriter'}},{35,2,{'Amethyst Dark'}},
-{78,2,{'VSC Dark Modern'}},{77,2,{'VSC Dark High Contrast'}},{76,2,{'VS Light'}},{32,2,{'Adapta Nokto'}},{52,2,{
-'GitHub Dark High Contrast'}},{74,2,{'United Ubuntu'}},{73,2,{'United GNOME'}},{44,2,{'DuoTone Dark Sea'}},{89,2,{
-'Viow Light'}},{34,2,{'Ambiance'}},{69,2,{'Solarized Dark'}},{68,2,{'Rose'}},{92,2,{'Vynixu'}},{38,2,{'Arc Dark'}},{36,2
-,{'Amethyst'}},{55,2,{'GitHub Light Default'}},{65,2,{'NeonTide'}},{70,2,{'Solarized Light'}},{59,2,{'Light'}},{47,2,{
-'Elementary'}},{43,2,{'DuoTone Dark Forest'}},{48,2,{'FrozenAurora'}},{67,2,{'Quiet Light'}},{45,2,{'DuoTone Dark Sky'}}
-,{75,2,{'VS Dark'}},{53,2,{'GitHub Dark'}}}},{2,1,{'Components'},{{8,2,{'Section'}},{7,2,{'Notification'}},{4,2,{
-'Button'}},{12,2,{'Window'}},{9,2,{'Tab'}},{6,2,{'Element'}},{11,2,{'TitleBar'}},{10,2,{'Textbox'}},{3,2,{'Assets'}},{5,
-2,{'Dialog'}}}}}}},'0.4.2','WaxRuntime',string,task,setmetatable,error,next,table,unpack,coroutine,script,type,require,
-pcall,tostring,tonumber,_VERSION local m,n,o,p,q,r,s=b.insert,b.remove,b.freeze or function(m)return m end,d.wrap,ae.sub
-,ae.match,ae.gmatch if k and q(k,1,4)=='Lune'then local t,u=h(g,'@lune/task')if t and u then af=u end end local t=af and
-af.defer local u,v,w,x,y,z,A,B,C=t or function(u,...)p(u)(...)end,{[1]='Folder',[2]='ModuleScript',[3]='Script',[4]=
-'LocalScript',[5]='StringValue'},{},{},{},{},{},{},{}local D,E={GetFullName={{},function(D)local E,F=D.Name,D.Parent
-while F do E=F.Name..'.'..E F=F.Parent end return E end},GetChildren={{},function(D)local E={}for F in aj,C[D]do m(E,F)
-end return E end},GetDescendants={{},function(D)local E={}for F in aj,C[D]do m(E,F)for G,H in aj,F:GetDescendants()do m(
-E,H)end end return E end},FindFirstChild={{'string','boolean?'},function(D,E,F)local G=C[D]for H in aj,G do if H.Name==E
-then return H end end if F then for H in aj,G do return H:FindFirstChild(E,true)end end end},FindFirstAncestor={{
-'string'},function(D,E)local F=D.Parent while F do if F.Name==E then return F end F=F.Parent end end},WaitForChild={{
-'string','number?'},function(D,E)return D:FindFirstChild(E)end}},{}for F,G in aj,D do local H,I,J=G[1],G[2],{}for K,L in
-aj,H do local M,N=r(L,'^([^%?]+)(%??)')J[K]={M,N}end E[F]=function(K,...)if not C[K]then ah(
-"Expected ':' not '.' calling member function "..F,2)end local L={...}for M,N in aj,J do local O=L[M]local P,Q,R=f(O),N[
-1],N[2]if O==nil and not R then ah('Argument '..O..' missing or nil',3)end if Q~='any'and P~=Q and not(P=='nil'and R)
-then ah('Argument '..M..' expects type "'..Q..'", got "'..P..'"',2)end end return I(K,...)end end local function F(G,H,I
-)local J,K=(ag({},{__mode='k'}))local function L(M)ah(M..' is not a valid (virtual) member of '..G..' "'..H..'"',3)end
-local function M(N)ah('Unable to assign (virtual) property '..N..'. Property is read only',3)end local N,O={},{}O.
-__metatable=false O.__index=function(P,Q)if Q=='ClassName'then return G elseif Q=='Name'then return H elseif Q=='Parent'
-then return I elseif G=='StringValue'and Q=='Value'then return K else local R=E[Q]if R then return R end end for R in aj
-,J do if R.Name==Q then return R end end L(Q)end O.__newindex=function(P,Q,R)if Q=='ClassName'then M(Q)elseif Q=='Name'
-then H=R elseif Q=='Parent'then if R==N then return end if I~=nil then C[I][N]=nil end I=R if R~=nil then C[R][N]=true
-end elseif G=='StringValue'and Q=='Value'then K=R else L(Q)end end O.__tostring=function()return H end ag(N,O)C[N]=J if
-I~=nil then C[I][N]=true end return N end local function G(H,I)local J,K,L,M=H[1],H[2],H[3],H[4]local N=v[K]local O=L
-and n(L,1)or N local P=F(N,O,I)w[J]=P if L then for Q,R in aj,L do P[Q]=R end end if M then for Q,R in aj,M do G(R,P)end
-end return P end local H=F('Folder','['..ad..']')for I,J in aj,ab do G(J,H)end for I,J in aj,aa do local K=w[I]x[K]=J y[
-K]=I local L=K.ClassName if L=='LocalScript'or L=='Script'then m(A,K)end end local function I(J)local K,L=J.ClassName,z[
-J]if L and K=='ModuleScript'then return c(L)end local M=x[J]local function N(O)O=i(O)local P,Q,R=J:GetFullName(),r(O,
+expect(b).to.equal'Single'expect(d).to.equal'Group'end)end end)()end},{{1,2,{'Fluent Renewed'},{{95,1,{'Packages'},{{96,
+2,{'Flipper'}},{98,2,{'Signal'}},{99,1,{'_Index'},{{132,1,{'reselim_flipper@2.0.0'},{{133,2,{'flipper'},{{149,2,{
+'isMotor.spec'}},{138,2,{'Instant'}},{136,2,{'GroupMotor'}},{140,2,{'Linear'}},{148,2,{'isMotor'}},{147,2,{'Spring.spec'
+}},{135,2,{'BaseMotor.spec'}},{142,2,{'Signal'}},{144,2,{'SingleMotor'}},{141,2,{'Linear.spec'}},{143,2,{'Signal.spec'}}
+,{146,2,{'Spring'}},{139,2,{'Instant.spec'}},{145,2,{'SingleMotor.spec'}},{137,2,{'GroupMotor.spec'}},{134,2,{
+'BaseMotor'}}}}}},{125,1,{'lucasmzreal_fastsignal@10.4.0'},{{126,2,{'fastsignal'},{{130,2,{'Readme'}},{129,2,{
+'Immediate'}},{131,2,{'wally'}},{127,2,{'Deferred'}},{128,2,{'Docs'}}}}}},{103,1,{'littensy_ripple@0.9.3'},{{104,2,{
+'Promise'}},{105,2,{'ripple'},{{119,1,{'utils'},{{121,2,{'intermediate'}},{123,2,{'snapshot'}},{124,2,{'spy'}},{122,2,{
+'merge'}},{120,2,{'assign'}}}},{109,1,{'solvers'},{{116,2,{'tween'}},{117,2,{'tween.spec'}},{113,2,{'linear.spec'}},{114
+,2,{'spring'}},{112,2,{'linear'}},{115,2,{'spring.spec'}},{110,2,{'immediate'}},{111,2,{'immediate.spec'}}}},{118,2,{
+'types'}},{107,2,{'createMotion'}},{108,2,{'createMotion.spec'}},{106,2,{'config'}}}}}},{100,1,{'evaera_promise@4.0.0'},
+{{101,2,{'promise'},{{102,2,{'init.spec'}}}}}}}},{97,2,{'Ripple'}}}},{22,1,{'Modules'},{{28,2,{'Creator'}},{23,2,{
+'Acrylic'},{{24,2,{'AcrylicBlur'}},{27,2,{'Utils'}},{25,2,{'AcrylicPaint'}},{26,2,{'CreateAcrylic'}}}},{29,2,{'Icons'}}}
+},{13,2,{'Elements'},{{18,2,{'Keybind'}},{20,2,{'Slider'}},{17,2,{'Input'}},{14,2,{'Button'}},{21,2,{'Toggle'}},{15,2,{
+'Colorpicker'}},{16,2,{'Dropdown'}},{19,2,{'Paragraph'}}}},{2,1,{'Components'},{{7,2,{'Notification'}},{12,2,{'Window'}}
+,{9,2,{'Tab'}},{8,2,{'Section'}},{4,2,{'Button'}},{11,2,{'TitleBar'}},{10,2,{'Textbox'}},{6,2,{'Element'}},{3,2,{
+'Assets'}},{5,2,{'Dialog'}}}},{30,2,{'Themes'},{{39,2,{'Dark Typewriter'}},{54,2,{'GitHub Light Colorblind'}},{38,2,{
+'Arc Dark'}},{76,2,{'VS Light'}},{90,2,{'Viow Mars'}},{58,2,{'Kimbie Dark'}},{57,2,{'GitHub Light'}},{93,2,{'Yaru Dark'}
+},{73,2,{'United GNOME'}},{91,2,{'Viow Neon'}},{87,2,{'Viow Darker'}},{88,2,{'Viow Flat'}},{43,2,{'DuoTone Dark Forest'}
+},{71,2,{'Tomorrow Night Blue'}},{89,2,{'Viow Light'}},{51,2,{'GitHub Dark Dimmed'}},{45,2,{'DuoTone Dark Sky'}},{80,2,{
+'VSC Light High Contrast'}},{48,2,{'FrozenAurora'}},{83,2,{'VSC Red'}},{68,2,{'Rose'}},{36,2,{'Amethyst'}},{75,2,{
+'VS Dark'}},{70,2,{'Solarized Light'}},{31,2,{'Abyss'}},{84,2,{'VerdantGlass'}},{49,2,{'GitHub Dark Colorblind'}},{52,2,
+{'GitHub Dark High Contrast'}},{82,2,{'VSC Light+'}},{85,2,{'Viow Arabian Mix'}},{42,2,{'DuoTone Dark Earth'}},{79,2,{
+'VSC Dark+'}},{78,2,{'VSC Dark Modern'}},{59,2,{'Light'}},{77,2,{'VSC Dark High Contrast'}},{62,2,{'Monokai Dimmed'}},{
+65,2,{'NeonTide'}},{74,2,{'United Ubuntu'}},{67,2,{'Quiet Light'}},{60,2,{'MidnightPrism'}},{37,2,{'Aqua'}},{56,2,{
+'GitHub Light High Contrast'}},{92,2,{'Vynixu'}},{50,2,{'GitHub Dark Default'}},{72,2,{'Typewriter'}},{41,2,{'Darker'}},
+{81,2,{'VSC Light Modern'}},{47,2,{'Elementary'}},{69,2,{'Solarized Dark'}},{66,2,{'OpalineHalo'}},{53,2,{'GitHub Dark'}
+},{46,2,{'DuoTone Dark Space'}},{35,2,{'Amethyst Dark'}},{55,2,{'GitHub Light Default'}},{63,2,{'Monokai Vibrant'}},{34,
+2,{'Ambiance'}},{61,2,{'Monokai Classic'}},{40,2,{'Dark'}},{32,2,{'Adapta Nokto'}},{86,2,{'Viow Arabian'}},{94,2,{'Yaru'
+}},{33,2,{'Amberfall'}},{44,2,{'DuoTone Dark Sea'}},{64,2,{'Monokai'}}}}}}},'0.4.2','WaxRuntime',string,task,
+setmetatable,error,next,table,unpack,coroutine,script,type,require,pcall,tostring,tonumber,_VERSION local m,n,o,p,q,r,s=
+b.insert,b.remove,b.freeze or function(m)return m end,d.wrap,ae.sub,ae.match,ae.gmatch if k and q(k,1,4)=='Lune'then
+local t,u=h(g,'@lune/task')if t and u then af=u end end local t=af and af.defer local u,v,w,x,y,z,A,B,C=t or function(u,
+...)p(u)(...)end,{[1]='Folder',[2]='ModuleScript',[3]='Script',[4]='LocalScript',[5]='StringValue'},{},{},{},{},{},{},{}
+local D,E={GetFullName={{},function(D)local E,F=D.Name,D.Parent while F do E=F.Name..'.'..E F=F.Parent end return E end}
+,GetChildren={{},function(D)local E={}for F in aj,C[D]do m(E,F)end return E end},GetDescendants={{},function(D)local E={
+}for F in aj,C[D]do m(E,F)for G,H in aj,F:GetDescendants()do m(E,H)end end return E end},FindFirstChild={{'string',
+'boolean?'},function(D,E,F)local G=C[D]for H in aj,G do if H.Name==E then return H end end if F then for H in aj,G do
+return H:FindFirstChild(E,true)end end end},FindFirstAncestor={{'string'},function(D,E)local F=D.Parent while F do if F.
+Name==E then return F end F=F.Parent end end},WaitForChild={{'string','number?'},function(D,E)return D:FindFirstChild(E)
+end}},{}for F,G in aj,D do local H,I,J=G[1],G[2],{}for K,L in aj,H do local M,N=r(L,'^([^%?]+)(%??)')J[K]={M,N}end E[F]=
+function(K,...)if not C[K]then ah("Expected ':' not '.' calling member function "..F,2)end local L={...}for M,N in aj,J
+do local O=L[M]local P,Q,R=f(O),N[1],N[2]if O==nil and not R then ah('Argument '..O..' missing or nil',3)end if Q~='any'
+and P~=Q and not(P=='nil'and R)then ah('Argument '..M..' expects type "'..Q..'", got "'..P..'"',2)end end return I(K,...
+)end end local function F(G,H,I)local J,K=(ag({},{__mode='k'}))local function L(M)ah(M..
+' is not a valid (virtual) member of '..G..' "'..H..'"',3)end local function M(N)ah(
+'Unable to assign (virtual) property '..N..'. Property is read only',3)end local N,O={},{}O.__metatable=false O.__index=
+function(P,Q)if Q=='ClassName'then return G elseif Q=='Name'then return H elseif Q=='Parent'then return I elseif G==
+'StringValue'and Q=='Value'then return K else local R=E[Q]if R then return R end end for R in aj,J do if R.Name==Q then
+return R end end L(Q)end O.__newindex=function(P,Q,R)if Q=='ClassName'then M(Q)elseif Q=='Name'then H=R elseif Q==
+'Parent'then if R==N then return end if I~=nil then C[I][N]=nil end I=R if R~=nil then C[R][N]=true end elseif G==
+'StringValue'and Q=='Value'then K=R else L(Q)end end O.__tostring=function()return H end ag(N,O)C[N]=J if I~=nil then C[
+I][N]=true end return N end local function G(H,I)local J,K,L,M=H[1],H[2],H[3],H[4]local N=v[K]local O=L and n(L,1)or N
+local P=F(N,O,I)w[J]=P if L then for Q,R in aj,L do P[Q]=R end end if M then for Q,R in aj,M do G(R,P)end end return P
+end local H=F('Folder','['..ad..']')for I,J in aj,ab do G(J,H)end for I,J in aj,aa do local K=w[I]x[K]=J y[K]=I local L=
+K.ClassName if L=='LocalScript'or L=='Script'then m(A,K)end end local function I(J)local K,L=J.ClassName,z[J]if L and K
+=='ModuleScript'then return c(L)end local M=x[J]local function N(O)O=i(O)local P,Q,R=J:GetFullName(),r(O,
 '[^:]+:(%d+): (.+)')if not Q or not l then return P..':*: '..(R or O)end Q=j(Q)local S=y[J]local T=l[S]local U=Q-T+1 if
 U<0 then U='?'end return P..':'..U..': '..R end if K=='LocalScript'or K=='Script'then local O,P=h(M)if not O then ah(N(P
 ),0)end else local O={h(M)}local P=n(O,1)if not P then local Q=n(O,1)ah(N(Q),0)end z[J]=O return c(O)end end function a(
