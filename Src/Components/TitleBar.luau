@@ -238,5 +238,11 @@ return function(Config)
 	end)
 	]]
 
+	task.defer(function()
+		local parent = TitleBar.TitleHolder.Parent
+		TitleBar.TitleHolder.Parent = nil
+		TitleBar.TitleHolder.Parent = parent
+	end)
+
 	return TitleBar
 end
