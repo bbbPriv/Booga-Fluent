@@ -251,18 +251,18 @@ ThemeTag={TextColor3='Text'}})k.CloseButton=m(l.Utilities:GetIcon'Close',UDim2.n
 CreatedWindow:Dialog{Title='Close',Content='Are you sure you want to unload the interface?',Buttons={{Title='Yes',
 Callback=l.Destroy},{Title='No'}}}end)k.MaxButton=m(l.Utilities:GetIcon'Max',UDim2.new(1,-40,0,4),k.Frame,0,function()j.
 Window.Maximize(not j.Window.Maximized)end)k.MinButton=m(l.Utilities:GetIcon'Min',UDim2.new(1,-80,0,4),k.Frame,0,
-function()j.Window:Minimize()end)return k end end)()end,[12]=function()local b,c,d=a(12)local e return(function(...)
-local f=c.Parent.Parent local g,h,i,j,k,l,m=d(f.Packages.Flipper),d(f.Modules.Creator),d(f.Modules.Acrylic),d(f.Packages
-.Signal),d(c.Parent.Assets),c.Parent,d(f)local n,o,p,q,r,s=m.Utilities:Clone(game:GetService'UserInputService'),m.
-Utilities:Clone(game:GetService'Players').LocalPlayer:GetMouse(),m.Utilities:Clone(game:GetService'Workspace').
-CurrentCamera,g.Spring.new,g.Instant.new,h.New return function(t)assert(typeof(t.Mobile)=='table',
-"Config key 'Mobile' must be a table!")assert(typeof(t.Mobile.GetIcon)=='function',
-"Mobile Config key 'GetIcon' must be a function!")assert(typeof(t.Mobile.Size)=='UDim2',
-"Mobile Config key 'Size' must be a UDim2!")local u,v,w,x,y={CreatedAt=tick(),Minimized=false,OnMinimized=j.new(),
-PostMinimized=j.new(),Maximized=false,OnMaximized=j.new(),PostMaximized=j.new(),Size=t.Size,MinSize=t.MinSize,CurrentPos
-=0,TabWidth=0,Position=UDim2.fromOffset(p.ViewportSize.X/2-t.Size.X.Offset/2,p.ViewportSize.Y/2-t.Size.Y.Offset/2)},
-false local z,A=false local B,C,D,E,F=false,false u.AcrylicPaint=i.AcrylicPaint()u.TabWidth=t.TabWidth local G,H=s(
-'Frame',{Size=UDim2.fromOffset(4,0),BackgroundColor3=Color3.fromRGB(76,194,255),Position=UDim2.fromOffset(0,17),
+function()j.Window:Minimize()end)task.defer(function()local n=k.TitleHolder.Parent k.TitleHolder.Parent=nil k.
+TitleHolder.Parent=n end)return k end end)()end,[12]=function()local b,c,d=a(12)local e return(function(...)local f=c.
+Parent.Parent local g,h,i,j,k,l,m=d(f.Packages.Flipper),d(f.Modules.Creator),d(f.Modules.Acrylic),d(f.Packages.Signal),
+d(c.Parent.Assets),c.Parent,d(f)local n,o,p,q,r,s=m.Utilities:Clone(game:GetService'UserInputService'),m.Utilities:
+Clone(game:GetService'Players').LocalPlayer:GetMouse(),m.Utilities:Clone(game:GetService'Workspace').CurrentCamera,g.
+Spring.new,g.Instant.new,h.New return function(t)assert(typeof(t.Mobile)=='table',"Config key 'Mobile' must be a table!"
+)assert(typeof(t.Mobile.GetIcon)=='function',"Mobile Config key 'GetIcon' must be a function!")assert(typeof(t.Mobile.
+Size)=='UDim2',"Mobile Config key 'Size' must be a UDim2!")local u,v,w,x,y={CreatedAt=tick(),Minimized=false,OnMinimized
+=j.new(),PostMinimized=j.new(),Maximized=false,OnMaximized=j.new(),PostMaximized=j.new(),Size=t.Size,MinSize=t.MinSize,
+CurrentPos=0,TabWidth=0,Position=UDim2.fromOffset(p.ViewportSize.X/2-t.Size.X.Offset/2,p.ViewportSize.Y/2-t.Size.Y.
+Offset/2)},false local z,A=false local B,C,D,E,F=false,false u.AcrylicPaint=i.AcrylicPaint()u.TabWidth=t.TabWidth local
+G,H=s('Frame',{Size=UDim2.fromOffset(4,0),BackgroundColor3=Color3.fromRGB(76,194,255),Position=UDim2.fromOffset(0,17),
 AnchorPoint=Vector2.new(0,0.5),ThemeTag={BackgroundColor3='Accent'}},{s('UICorner',{CornerRadius=UDim.new(0,2)})}),s(
 'Frame',{Size=UDim2.fromOffset(20,20),BackgroundTransparency=1,Position=UDim2.new(1,-20,1,-20)})u.TabHolder=s(
 'ScrollingFrame',{Size=UDim2.fromScale(1,1),BackgroundTransparency=1,ScrollBarImageTransparency=1,ScrollBarThickness=0,
@@ -11204,48 +11204,48 @@ function()local aa,ab,ac=a(149)local ad return(function(...)return function()loc
 Parent.SingleMotor),ac(ab.Parent.GroupMotor)local ah,aj=af.new(0),ag.new{}it('should properly detect motors',function()
 expect(ae(ah)).to.equal(true)expect(ae(aj)).to.equal(true)end)it("shouldn't detect things that aren't motors",function()
 expect(ae{}).to.equal(false)end)it('should return the proper motor type',function()local ak,b=ae(ah)local c,d=ae(aj)
-expect(b).to.equal'Single'expect(d).to.equal'Group'end)end end)()end},{{1,2,{'Fluent Renewed'},{{22,1,{'Modules'},{{29,2
-,{'Icons'}},{28,2,{'Creator'}},{23,2,{'Acrylic'},{{27,2,{'Utils'}},{26,2,{'CreateAcrylic'}},{24,2,{'AcrylicBlur'}},{25,2
-,{'AcrylicPaint'}}}}}},{2,1,{'Components'},{{4,2,{'Button'}},{7,2,{'Notification'}},{11,2,{'TitleBar'}},{6,2,{'Element'}
-},{9,2,{'Tab'}},{12,2,{'Window'}},{10,2,{'Textbox'}},{5,2,{'Dialog'}},{3,2,{'Assets'}},{8,2,{'Section'}}}},{95,1,{
-'Packages'},{{96,2,{'Flipper'}},{99,1,{'_Index'},{{100,1,{'evaera_promise@4.0.0'},{{101,2,{'promise'},{{102,2,{
-'init.spec'}}}}}},{132,1,{'reselim_flipper@2.0.0'},{{133,2,{'flipper'},{{144,2,{'SingleMotor'}},{149,2,{'isMotor.spec'}}
-,{139,2,{'Instant.spec'}},{146,2,{'Spring'}},{134,2,{'BaseMotor'}},{147,2,{'Spring.spec'}},{145,2,{'SingleMotor.spec'}},
-{136,2,{'GroupMotor'}},{138,2,{'Instant'}},{140,2,{'Linear'}},{143,2,{'Signal.spec'}},{141,2,{'Linear.spec'}},{137,2,{
-'GroupMotor.spec'}},{148,2,{'isMotor'}},{135,2,{'BaseMotor.spec'}},{142,2,{'Signal'}}}}}},{125,1,{
-'lucasmzreal_fastsignal@10.4.0'},{{126,2,{'fastsignal'},{{128,2,{'Docs'}},{129,2,{'Immediate'}},{130,2,{'Readme'}},{131,
-2,{'wally'}},{127,2,{'Deferred'}}}}}},{103,1,{'littensy_ripple@0.9.3'},{{105,2,{'ripple'},{{108,2,{'createMotion.spec'}}
-,{109,1,{'solvers'},{{111,2,{'immediate.spec'}},{116,2,{'tween'}},{115,2,{'spring.spec'}},{114,2,{'spring'}},{117,2,{
-'tween.spec'}},{113,2,{'linear.spec'}},{110,2,{'immediate'}},{112,2,{'linear'}}}},{107,2,{'createMotion'}},{106,2,{
-'config'}},{118,2,{'types'}},{119,1,{'utils'},{{120,2,{'assign'}},{124,2,{'spy'}},{122,2,{'merge'}},{123,2,{'snapshot'}}
-,{121,2,{'intermediate'}}}}}},{104,2,{'Promise'}}}}}},{97,2,{'Ripple'}},{98,2,{'Signal'}}}},{13,2,{'Elements'},{{21,2,{
-'Toggle'}},{15,2,{'Colorpicker'}},{16,2,{'Dropdown'}},{20,2,{'Slider'}},{19,2,{'Paragraph'}},{17,2,{'Input'}},{18,2,{
-'Keybind'}},{14,2,{'Button'}}}},{30,2,{'Themes'},{{39,2,{'Dark Typewriter'}},{44,2,{'DuoTone Dark Sea'}},{48,2,{
-'FrozenAurora'}},{59,2,{'Light'}},{94,2,{'Yaru'}},{51,2,{'GitHub Dark Dimmed'}},{56,2,{'GitHub Light High Contrast'}},{
-66,2,{'OpalineHalo'}},{75,2,{'VS Dark'}},{78,2,{'VSC Dark Modern'}},{57,2,{'GitHub Light'}},{62,2,{'Monokai Dimmed'}},{
-69,2,{'Solarized Dark'}},{43,2,{'DuoTone Dark Forest'}},{33,2,{'Amberfall'}},{49,2,{'GitHub Dark Colorblind'}},{55,2,{
-'GitHub Light Default'}},{90,2,{'Viow Mars'}},{84,2,{'VerdantGlass'}},{89,2,{'Viow Light'}},{86,2,{'Viow Arabian'}},{74,
-2,{'United Ubuntu'}},{60,2,{'MidnightPrism'}},{53,2,{'GitHub Dark'}},{88,2,{'Viow Flat'}},{77,2,{
-'VSC Dark High Contrast'}},{79,2,{'VSC Dark+'}},{85,2,{'Viow Arabian Mix'}},{34,2,{'Ambiance'}},{71,2,{
-'Tomorrow Night Blue'}},{38,2,{'Arc Dark'}},{72,2,{'Typewriter'}},{58,2,{'Kimbie Dark'}},{68,2,{'Rose'}},{83,2,{
-'VSC Red'}},{54,2,{'GitHub Light Colorblind'}},{65,2,{'NeonTide'}},{82,2,{'VSC Light+'}},{31,2,{'Abyss'}},{81,2,{
-'VSC Light Modern'}},{64,2,{'Monokai'}},{45,2,{'DuoTone Dark Sky'}},{67,2,{'Quiet Light'}},{80,2,{
-'VSC Light High Contrast'}},{92,2,{'Vynixu'}},{36,2,{'Amethyst'}},{76,2,{'VS Light'}},{93,2,{'Yaru Dark'}},{47,2,{
-'Elementary'}},{87,2,{'Viow Darker'}},{32,2,{'Adapta Nokto'}},{73,2,{'United GNOME'}},{41,2,{'Darker'}},{37,2,{'Aqua'}},
-{61,2,{'Monokai Classic'}},{70,2,{'Solarized Light'}},{50,2,{'GitHub Dark Default'}},{63,2,{'Monokai Vibrant'}},{40,2,{
-'Dark'}},{35,2,{'Amethyst Dark'}},{91,2,{'Viow Neon'}},{42,2,{'DuoTone Dark Earth'}},{46,2,{'DuoTone Dark Space'}},{52,2
-,{'GitHub Dark High Contrast'}}}}}}},'0.4.2','WaxRuntime',string,task,setmetatable,error,next,table,unpack,coroutine,
-script,type,require,pcall,tostring,tonumber,_VERSION local m,n,o,p,q,r,s=b.insert,b.remove,b.freeze or function(m)return
-m end,d.wrap,ae.sub,ae.match,ae.gmatch if k and q(k,1,4)=='Lune'then local t,u=h(g,'@lune/task')if t and u then af=u end
-end local t=af and af.defer local u,v,w,x,y,z,A,B,C=t or function(u,...)p(u)(...)end,{[1]='Folder',[2]='ModuleScript',[3
-]='Script',[4]='LocalScript',[5]='StringValue'},{},{},{},{},{},{},{}local D,E={GetFullName={{},function(D)local E,F=D.
-Name,D.Parent while F do E=F.Name..'.'..E F=F.Parent end return E end},GetChildren={{},function(D)local E={}for F in aj,
-C[D]do m(E,F)end return E end},GetDescendants={{},function(D)local E={}for F in aj,C[D]do m(E,F)for G,H in aj,F:
-GetDescendants()do m(E,H)end end return E end},FindFirstChild={{'string','boolean?'},function(D,E,F)local G=C[D]for H in
-aj,G do if H.Name==E then return H end end if F then for H in aj,G do return H:FindFirstChild(E,true)end end end},
-FindFirstAncestor={{'string'},function(D,E)local F=D.Parent while F do if F.Name==E then return F end F=F.Parent end end
-},WaitForChild={{'string','number?'},function(D,E)return D:FindFirstChild(E)end}},{}for F,G in aj,D do local H,I,J=G[1],
-G[2],{}for K,L in aj,H do local M,N=r(L,'^([^%?]+)(%??)')J[K]={M,N}end E[F]=function(K,...)if not C[K]then ah(
+expect(b).to.equal'Single'expect(d).to.equal'Group'end)end end)()end},{{1,2,{'Fluent Renewed'},{{22,1,{'Modules'},{{23,2
+,{'Acrylic'},{{24,2,{'AcrylicBlur'}},{27,2,{'Utils'}},{26,2,{'CreateAcrylic'}},{25,2,{'AcrylicPaint'}}}},{29,2,{'Icons'}
+},{28,2,{'Creator'}}}},{30,2,{'Themes'},{{34,2,{'Ambiance'}},{77,2,{'VSC Dark High Contrast'}},{72,2,{'Typewriter'}},{32
+,2,{'Adapta Nokto'}},{48,2,{'FrozenAurora'}},{93,2,{'Yaru Dark'}},{74,2,{'United Ubuntu'}},{66,2,{'OpalineHalo'}},{92,2,
+{'Vynixu'}},{57,2,{'GitHub Light'}},{84,2,{'VerdantGlass'}},{70,2,{'Solarized Light'}},{89,2,{'Viow Light'}},{36,2,{
+'Amethyst'}},{53,2,{'GitHub Dark'}},{90,2,{'Viow Mars'}},{59,2,{'Light'}},{54,2,{'GitHub Light Colorblind'}},{67,2,{
+'Quiet Light'}},{58,2,{'Kimbie Dark'}},{37,2,{'Aqua'}},{44,2,{'DuoTone Dark Sea'}},{69,2,{'Solarized Dark'}},{40,2,{
+'Dark'}},{64,2,{'Monokai'}},{83,2,{'VSC Red'}},{49,2,{'GitHub Dark Colorblind'}},{38,2,{'Arc Dark'}},{47,2,{'Elementary'
+}},{33,2,{'Amberfall'}},{81,2,{'VSC Light Modern'}},{55,2,{'GitHub Light Default'}},{35,2,{'Amethyst Dark'}},{80,2,{
+'VSC Light High Contrast'}},{46,2,{'DuoTone Dark Space'}},{60,2,{'MidnightPrism'}},{79,2,{'VSC Dark+'}},{78,2,{
+'VSC Dark Modern'}},{76,2,{'VS Light'}},{75,2,{'VS Dark'}},{51,2,{'GitHub Dark Dimmed'}},{73,2,{'United GNOME'}},{43,2,{
+'DuoTone Dark Forest'}},{71,2,{'Tomorrow Night Blue'}},{91,2,{'Viow Neon'}},{88,2,{'Viow Flat'}},{50,2,{
+'GitHub Dark Default'}},{56,2,{'GitHub Light High Contrast'}},{45,2,{'DuoTone Dark Sky'}},{65,2,{'NeonTide'}},{85,2,{
+'Viow Arabian Mix'}},{63,2,{'Monokai Vibrant'}},{62,2,{'Monokai Dimmed'}},{94,2,{'Yaru'}},{52,2,{
+'GitHub Dark High Contrast'}},{31,2,{'Abyss'}},{61,2,{'Monokai Classic'}},{39,2,{'Dark Typewriter'}},{68,2,{'Rose'}},{41
+,2,{'Darker'}},{42,2,{'DuoTone Dark Earth'}},{87,2,{'Viow Darker'}},{86,2,{'Viow Arabian'}},{82,2,{'VSC Light+'}}}},{13,
+2,{'Elements'},{{16,2,{'Dropdown'}},{19,2,{'Paragraph'}},{21,2,{'Toggle'}},{20,2,{'Slider'}},{17,2,{'Input'}},{18,2,{
+'Keybind'}},{15,2,{'Colorpicker'}},{14,2,{'Button'}}}},{2,1,{'Components'},{{5,2,{'Dialog'}},{6,2,{'Element'}},{3,2,{
+'Assets'}},{12,2,{'Window'}},{11,2,{'TitleBar'}},{7,2,{'Notification'}},{4,2,{'Button'}},{10,2,{'Textbox'}},{8,2,{
+'Section'}},{9,2,{'Tab'}}}},{95,1,{'Packages'},{{97,2,{'Ripple'}},{96,2,{'Flipper'}},{99,1,{'_Index'},{{132,1,{
+'reselim_flipper@2.0.0'},{{133,2,{'flipper'},{{141,2,{'Linear.spec'}},{149,2,{'isMotor.spec'}},{139,2,{'Instant.spec'}},
+{137,2,{'GroupMotor.spec'}},{144,2,{'SingleMotor'}},{136,2,{'GroupMotor'}},{148,2,{'isMotor'}},{147,2,{'Spring.spec'}},{
+146,2,{'Spring'}},{145,2,{'SingleMotor.spec'}},{142,2,{'Signal'}},{134,2,{'BaseMotor'}},{143,2,{'Signal.spec'}},{140,2,{
+'Linear'}},{135,2,{'BaseMotor.spec'}},{138,2,{'Instant'}}}}}},{100,1,{'evaera_promise@4.0.0'},{{101,2,{'promise'},{{102,
+2,{'init.spec'}}}}}},{103,1,{'littensy_ripple@0.9.3'},{{104,2,{'Promise'}},{105,2,{'ripple'},{{119,1,{'utils'},{{121,2,{
+'intermediate'}},{122,2,{'merge'}},{124,2,{'spy'}},{120,2,{'assign'}},{123,2,{'snapshot'}}}},{106,2,{'config'}},{118,2,{
+'types'}},{108,2,{'createMotion.spec'}},{107,2,{'createMotion'}},{109,1,{'solvers'},{{117,2,{'tween.spec'}},{113,2,{
+'linear.spec'}},{111,2,{'immediate.spec'}},{110,2,{'immediate'}},{116,2,{'tween'}},{112,2,{'linear'}},{114,2,{'spring'}}
+,{115,2,{'spring.spec'}}}}}}}},{125,1,{'lucasmzreal_fastsignal@10.4.0'},{{126,2,{'fastsignal'},{{129,2,{'Immediate'}},{
+131,2,{'wally'}},{127,2,{'Deferred'}},{128,2,{'Docs'}},{130,2,{'Readme'}}}}}}}},{98,2,{'Signal'}}}}}}},'0.4.2',
+'WaxRuntime',string,task,setmetatable,error,next,table,unpack,coroutine,script,type,require,pcall,tostring,tonumber,
+_VERSION local m,n,o,p,q,r,s=b.insert,b.remove,b.freeze or function(m)return m end,d.wrap,ae.sub,ae.match,ae.gmatch if k
+and q(k,1,4)=='Lune'then local t,u=h(g,'@lune/task')if t and u then af=u end end local t=af and af.defer local u,v,w,x,y
+,z,A,B,C=t or function(u,...)p(u)(...)end,{[1]='Folder',[2]='ModuleScript',[3]='Script',[4]='LocalScript',[5]=
+'StringValue'},{},{},{},{},{},{},{}local D,E={GetFullName={{},function(D)local E,F=D.Name,D.Parent while F do E=F.Name..
+'.'..E F=F.Parent end return E end},GetChildren={{},function(D)local E={}for F in aj,C[D]do m(E,F)end return E end},
+GetDescendants={{},function(D)local E={}for F in aj,C[D]do m(E,F)for G,H in aj,F:GetDescendants()do m(E,H)end end return
+E end},FindFirstChild={{'string','boolean?'},function(D,E,F)local G=C[D]for H in aj,G do if H.Name==E then return H end
+end if F then for H in aj,G do return H:FindFirstChild(E,true)end end end},FindFirstAncestor={{'string'},function(D,E)
+local F=D.Parent while F do if F.Name==E then return F end F=F.Parent end end},WaitForChild={{'string','number?'},
+function(D,E)return D:FindFirstChild(E)end}},{}for F,G in aj,D do local H,I,J=G[1],G[2],{}for K,L in aj,H do local M,N=
+r(L,'^([^%?]+)(%??)')J[K]={M,N}end E[F]=function(K,...)if not C[K]then ah(
 "Expected ':' not '.' calling member function "..F,2)end local L={...}for M,N in aj,J do local O=L[M]local P,Q,R=f(O),N[
 1],N[2]if O==nil and not R then ah('Argument '..O..' missing or nil',3)end if Q~='any'and P~=Q and not(P=='nil'and R)
 then ah('Argument '..M..' expects type "'..Q..'", got "'..P..'"',2)end end return I(K,...)end end local function F(G,H,I
