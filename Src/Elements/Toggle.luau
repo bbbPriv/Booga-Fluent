@@ -16,7 +16,8 @@ function Element:New(Idx, Config)
 
 	local Toggle = {
 		Value = Config.Default or Config.Value or false,
-		Callback = Config.Callback or function(Value) end,
+		RunID = 0,
+		Callback = Config.Callback or function(Value, RunID) end,
 		Type = "Toggle",
 	}
 
@@ -92,7 +93,8 @@ function Element:New(Idx, Config)
 		ToggleCircle.ImageTransparency = Toggle.Value and 0 or 0.5
 
 		if typeof(Toggle.Callback) == "function" then
-			Library:SafeCallback(Toggle.Callback, Toggle.Value)
+			Toggle.RunID += 1
+			Library:SafeCallback(Toggle.Callback, Toggle.Value, Toggle.RunID)
 		end
 		if typeof(Toggle.Changed) == "function" then
 			Library:SafeCallback(Toggle.Changed, Toggle.Value)
