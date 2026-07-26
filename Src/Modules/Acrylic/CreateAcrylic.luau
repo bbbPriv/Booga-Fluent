@@ -9,6 +9,8 @@ local function createAcrylic()
 		Size = Vector3.new(1, 1, 0),
 		Anchored = true,
 		CanCollide = false,
+		CanQuery = false,
+		CanTouch = false,
 		Locked = true,
 		CastShadow = false,
 		Transparency = 0.98,

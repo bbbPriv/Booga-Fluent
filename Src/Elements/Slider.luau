@@ -1,6 +1,7 @@
 local UserInputService = game:GetService("UserInputService")
 local Root = script.Parent.Parent
 local Creator = require(Root.Modules.Creator)
+local SecureAssets = require(Root.Modules.SecureAssets)
 
 local New = Creator.New
 local Components = Root.Components
@@ -13,11 +14,21 @@ function Element:New(Idx, Config)
 	local Library = self.Library
 	assert(Config.Max, "Slider - Missing maximum value.")
 
+	local ValueSuffix = ""
+
+	if Config.ValueSuffix ~= nil then
+		assert(typeof(Config.ValueSuffix) == "string", "Slider - ValueSuffix must be a string.")
+		assert(not Config.ValueSuffix:find("%d"), "Slider - ValueSuffix cannot contain numbers.")
+
+		ValueSuffix = Config.ValueSuffix
+	end
+
 	local Slider = {
 		Value = nil,
 		Min = typeof(Config.Min) == "number" and Config.Min or 0,
 		Max = Config.Max,
 		Rounding = typeof(Config.Rounding) == "number" and Config.Rounding or 0,
+		ValueSuffix = ValueSuffix,
 		Callback = typeof(Config.Callback) == "function" and Config.Callback or function(Value, OldValue) end,
 		Changed = Config.Changed or function() end,
 		Type = "Slider"
@@ -36,7 +47,7 @@ function Element:New(Idx, Config)
 		AnchorPoint = Vector2.new(0, 0.5),
 		Position = UDim2.new(0, -7, 0.5, 0),
 		Size = UDim2.fromOffset(14, 14),
-		Image = "http://www.roblox.com/asset/?id=12266946128",
+		Image = SecureAssets:Get("http://www.roblox.com/asset/?id=12266946128"),
 		ThemeTag = {
 			ImageColor3 = "Accent",
 		}
@@ -129,7 +140,7 @@ function Element:New(Idx, Config)
 
 		SliderDot.Position = UDim2.new((self.Value - Slider.Min) / (Slider.Max - Slider.Min), -7, 0.5, 0)
 		SliderFill.Size = UDim2.fromScale((self.Value - Slider.Min) / (Slider.Max - Slider.Min), 1)
-		SliderDisplay.Text = tostring(self.Value)
+		SliderDisplay.Text = tostring(self.Value) .. Slider.ValueSuffix
 
 		if typeof(Slider.Callback) == "function" then
 			Library:SafeCallback(Slider.Callback, self.Value, OldValue)
@@ -154,7 +165,17 @@ function Element:New(Idx, Config)
 	end)
 
 	Creator.AddSignal(SliderDisplay.FocusLost, function()
-		Slider:SetValue(tonumber(SliderDisplay.Text) or Slider.Value)
+		local DisplayValue = SliderDisplay.Text
+
+		if Slider.ValueSuffix ~= "" then
+			local SuffixLength = #Slider.ValueSuffix
+
+			if DisplayValue:sub(-SuffixLength) == Slider.ValueSuffix then
+				DisplayValue = DisplayValue:sub(1, -SuffixLength - 1)
+			end
+		end
+
+		Slider:SetValue(tonumber(DisplayValue:match("^%s*(.-)%s*$")) or Slider.Value)
 	end)
 
 	function Slider:Destroy()

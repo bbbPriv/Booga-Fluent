@@ -5,6 +5,7 @@ local Mouse = LocalPlayer:GetMouse()
 
 local Root = script.Parent.Parent
 local Creator = require(Root.Modules.Creator)
+local SecureAssets = require(Root.Modules.SecureAssets)
 
 local New = Creator.New
 local Components = Root.Components
@@ -57,7 +58,7 @@ function Element:New(Idx, Config)
 		Position = UDim2.new(1, -10, 0.5, 0),
 		AnchorPoint = Vector2.new(1, 0.5),
 		Parent = ColorpickerFrame.Frame,
-		Image = "http://www.roblox.com/asset/?id=14204231522",
+		Image = SecureAssets:Get("http://www.roblox.com/asset/?id=14204231522"),
 		ImageTransparency = 0.45,
 		ScaleType = Enum.ScaleType.Tile,
 		TileSize = UDim2.fromOffset(40, 40),
@@ -117,13 +118,13 @@ function Element:New(Idx, Config)
 			ScaleType = Enum.ScaleType.Fit,
 			AnchorPoint = Vector2.new(0.5, 0.5),
 			BackgroundTransparency = 1,
-			Image = "http://www.roblox.com/asset/?id=4805639000",
+			Image = SecureAssets:Get("http://www.roblox.com/asset/?id=4805639000"),
 		}) :: ImageLabel
 
 		local SatVibMap = New("ImageLabel", {
 			Size = UDim2.fromOffset(180, 160),
 			Position = UDim2.fromOffset(20, 55),
-			Image = "rbxassetid://4155801252",
+			Image = SecureAssets:Get("rbxassetid://4155801252"),
 			BackgroundColor3 = Colorpicker.Value,
 			BackgroundTransparency = 0,
 			Parent = Dialog.Root,
@@ -145,7 +146,7 @@ function Element:New(Idx, Config)
 		}) :: Frame
 
 		local OldColorFrameChecker = New("ImageLabel", {
-			Image = "http://www.roblox.com/asset/?id=14204231522",
+			Image = SecureAssets:Get("http://www.roblox.com/asset/?id=14204231522"),
 			ImageTransparency = 0.45,
 			ScaleType = Enum.ScaleType.Tile,
 			TileSize = UDim2.fromOffset(40, 40),
@@ -175,7 +176,7 @@ function Element:New(Idx, Config)
 		}) :: Frame
 
 		local DialogDisplayFrameChecker = New("ImageLabel", {
-			Image = "http://www.roblox.com/asset/?id=14204231522",
+			Image = SecureAssets:Get("http://www.roblox.com/asset/?id=14204231522"),
 			ImageTransparency = 0.45,
 			ScaleType = Enum.ScaleType.Tile,
 			TileSize = UDim2.fromOffset(40, 40),
@@ -213,7 +214,7 @@ function Element:New(Idx, Config)
 
 		local HueDrag = New("ImageLabel", {
 			Size = UDim2.fromOffset(14, 14),
-			Image = "http://www.roblox.com/asset/?id=12266946128",
+			Image = SecureAssets:Get("http://www.roblox.com/asset/?id=12266946128"),
 			Parent = HueDragHolder,
 			ThemeTag = {
 				ImageColor3 = "DialogInput",
@@ -265,7 +266,7 @@ function Element:New(Idx, Config)
 
 			TransparencyDrag = New("ImageLabel", {
 				Size = UDim2.fromOffset(14, 14),
-				Image = "http://www.roblox.com/asset/?id=12266946128",
+				Image = SecureAssets:Get("http://www.roblox.com/asset/?id=12266946128"),
 				Parent = TransparencyDragHolder,
 				ThemeTag = {
 					ImageColor3 = "DialogInput",
@@ -297,7 +298,7 @@ function Element:New(Idx, Config)
 					CornerRadius = UDim.new(1, 0),
 				}),
 				New("ImageLabel", {
-					Image = "http://www.roblox.com/asset/?id=14204231522",
+					Image = SecureAssets:Get("http://www.roblox.com/asset/?id=14204231522"),
 					ImageTransparency = 0.45,
 					ScaleType = Enum.ScaleType.Tile,
 					TileSize = UDim2.fromOffset(40, 40),

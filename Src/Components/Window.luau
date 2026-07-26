@@ -330,7 +330,20 @@ return function(Config)
 
 	function Window:Minimize()
 		Window.Minimized = not Window.Minimized
-		Window.Root.Visible = not Window.Minimized
+
+		if Window.Minimized then
+			Window.AcrylicPaint.SetVisibility(false)
+			if Library.AcrylicSupported then
+				Acrylic.Disable()
+			end
+			Window.Root.Visible = false
+		else
+			Window.Root.Visible = true
+			if Library.Acrylic and Library.AcrylicSupported then
+				Acrylic.Enable()
+			end
+			Window.AcrylicPaint.SetVisibility(Library.Acrylic)
+		end
 
 		Window.OnMinimized:Fire(tick(), Window.Root.Visible)
 
@@ -349,7 +362,7 @@ return function(Config)
 			local Icon = Config.Mobile.GetIcon(Window.Minimized)
 			Window.HideButton.Image = Icon.Image
 			Window.HideButton.ImageRectOffset = Icon.ImageRectOffset
-			Window.HideButton.ImageRectSize = Icon.ImageRectSiz
+			Window.HideButton.ImageRectSize = Icon.ImageRectSize
 		end
 		Window.PostMinimized:Fire(tick(), Window.Root.Visible)
 	end
@@ -403,21 +416,18 @@ return function(Config)
 
 	if Library.Utilities:GetOS() == "Mobile" then
 		Creator.AddSignal(Window.HideButton.TouchTap, function()
-			Window.Minimized = not Window.Minimized
-       			Window.Root.Visible = not Window.Minimized
-			local Icon = Config.Mobile.GetIcon(Window.Minimized)
-			Window.HideButton.Image = Icon.Image
-			Window.HideButton.ImageRectOffset = Icon.ImageRectOffset
-			Window.HideButton.ImageRectSize = Icon.ImageRectSize
+			Window:Minimize()
 		end)
 	else
 		Creator.AddSignal(Window.HideButton.MouseButton1Click, function()
-			Window.Minimized = not Window.Minimized
-       			Window.Root.Visible = not Window.Minimized
+			Window:Minimize()
 		end)	
 	end
 
 	function Window:Destroy()
+		if Library.AcrylicSupported then
+			Acrylic.Disable()
+		end
 		if Window.AcrylicPaint.Model then
 			Window.AcrylicPaint.Model:Destroy()
 		end

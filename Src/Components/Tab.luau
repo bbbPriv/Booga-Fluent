@@ -1,6 +1,7 @@
 local Root = script.Parent.Parent
 local Flipper = require(Root.Packages.Flipper)
 local Creator = require(Root.Modules.Creator)
+local SecureAssets = require(Root.Modules.SecureAssets)
 
 local New = Creator.New
 local Spring = Flipper.Spring.new
@@ -103,9 +104,9 @@ function TabModule:New(Title, Icon, Parent)
 		BackgroundTransparency = 1,
 		Parent = Window.ContainerHolder,
 		Visible = false,
-		BottomImage = "rbxassetid://6889812791",
-		MidImage = "rbxassetid://6889812721",
-		TopImage = "rbxassetid://6276641225",
+		BottomImage = SecureAssets:Get("rbxassetid://6889812791"),
+		MidImage = SecureAssets:Get("rbxassetid://6889812721"),
+		TopImage = SecureAssets:Get("rbxassetid://6276641225"),
 		ScrollBarImageColor3 = Color3.fromRGB(255, 255, 255),
 		ScrollBarImageTransparency = 0.95,
 		ScrollBarThickness = 3,

@@ -40,6 +40,7 @@ local function Clone<Original>(ToClone: any & Original): (Original, boolean)
 end
 
 local MarketplaceService = Clone(game:GetService("MarketplaceService"))
+local StarterGui = Clone(game:GetService("StarterGui"))
 local TweenService = Clone(game:GetService("TweenService"))
 local Camera = Clone(game:GetService("Workspace")).CurrentCamera
 local UserInputService = Clone(game:GetService("UserInputService"))
@@ -52,6 +53,7 @@ local Creator = require(Root.Modules.Creator)
 local ElementsTable = require(Root.Elements)
 local Acrylic = require(Root.Modules.Acrylic)
 local Icons = require(Root.Modules.Icons)
+local SecureAssets = require(Root.Modules.SecureAssets)
 local Themes = require(Root.Themes)
 local Signal = require(Root.Packages.Signal)
 
@@ -130,12 +132,15 @@ local Library = {
 		Themes = Themes,
 		Shared = SharedTable,
 		Creator = Creator,
-		Icons = Icons
+		Icons = nil,
+		SecureAssets = SecureAssets
 	},
 	Connections = Creator.Signals,
 	Unloaded = false,
 	Loaded = true,
 
+	Folder = "FluentRenewed",
+	SecureMode = false,
 	Theme = "Dark",
 	DialogOpen = false,
 	AcrylicSupported = true,
@@ -146,6 +151,48 @@ local Library = {
 
 	GUI = BaseContainer
 }
+
+local function GetRawIcon(Name)
+	return Name ~= "SetIcon" and Icons[Name] or nil
+end
+
+local function GetSecureIconData(IconData)
+	if typeof(IconData) ~= "table" or typeof(IconData.Image) ~= "string" or not Library.SecureMode then
+		return IconData
+	end
+
+	return {
+		Image = SecureAssets:Get(IconData.Image),
+		ImageRectSize = IconData.ImageRectSize,
+		ImageRectOffset = IconData.ImageRectOffset,
+	}
+end
+
+Library.Utilities.Icons = setmetatable({
+	SetIcon = function(_, Image, IconName)
+		local IconData = Library.Utilities:GetIcon(IconName)
+
+		if typeof(IconData) ~= "table" then
+			return Icons:SetIcon(Image, IconName)
+		end
+
+		Image.ImageRectSize = IconData.ImageRectSize
+		Image.ImageRectOffset = IconData.ImageRectOffset
+		Image.Image = IconData.Image
+	end,
+}, {
+	__index = function(_, Key)
+		local Value = GetRawIcon(Key)
+
+		if typeof(Value) == "table" then
+			return GetSecureIconData(Value)
+		elseif typeof(Value) == "string" and Library.SecureMode then
+			return SecureAssets:Get(Value)
+		end
+
+		return Value
+	end,
+})
 
 function Library:SafeCallback(Function, ...)
 	assert(typeof(Function) == "function", debug.traceback(`Library:SafeCallback expects type 'function' at Argument #1, got '{typeof(Function)}'`, 2))
@@ -188,7 +235,7 @@ function Library.Utilities:Round(Number: number, Factor: number): number
 end
 
 function Library.Utilities:GetIcon(Name: string): { Image: string, ImageRectSize: Vector2, ImageRectOffset: Vector2 }
-	return Name ~= "SetIcon" and Icons[Name] or nil
+	return GetSecureIconData(GetRawIcon(Name))
 end
 
 function Library.Utilities:Prettify(ToPrettify: EnumItem & string & number): string | number
@@ -257,6 +304,7 @@ function Library:Window(Config: {
 		Resize: boolean?,
 		MinimizeKey: Enum.KeyCode?,
 		Acrylic: boolean?,
+		SecureMode: boolean?,
 		Theme: string?,
 		Mobile: {
 			GetIcon: (IsMinimized: boolean) -> { Image: string, ImageRectOffset: Vector2, ImageRectSize: Vector2 },
@@ -280,7 +328,25 @@ function Library:Window(Config: {
 	local initialAcrylic = if typeof(Config.Acrylic) == "boolean" then Config.Acrylic else false
 	Library.UseAcrylic = initialAcrylic
 	Library.Acrylic = initialAcrylic
+	Library.SecureMode = Config.SecureMode == true
 	Library.Theme = if typeof(Config.Theme) == "string" then Config.Theme else "Vynixu"
+
+	SecureAssets:SetFolder(Library.Folder)
+	SecureAssets:SetEnabled(Library.SecureMode)
+
+	if Library.SecureMode then
+		if SecureAssets:ShouldDownload() then
+			pcall(function()
+				StarterGui:SetCore("SendNotification", {
+					Title = "Fluent Renewed",
+					Text = "Downloading UI Assets...",
+					Duration = 5,
+				})
+			end)
+		end
+
+		SecureAssets:Prepare()
+	end
 
 	Library.AcrylicSupported = pcall(Acrylic.init)
 
@@ -334,6 +400,9 @@ function Library:Destroy()
 		Library.Loaded = false
 
 		Library.OnUnload:Fire(tick())
+		if Library.AcrylicSupported then
+			Acrylic.Disable()
+		end
 
 		if Library.CreatedWindow.AcrylicPaint.Model then
 			Library.CreatedWindow.AcrylicPaint.Model:Destroy()
@@ -403,11 +472,16 @@ function Library:ToggleAcrylic(Value: boolean)
 	if Library.CreatedWindow then
 		Library.UseAcrylic = Value
 		Library.Acrylic = Value
-		Library.CreatedWindow.AcrylicPaint.SetVisibility(Value)
-		if Library.AcrylicSupported then
-			if Value then
+		local visible = Value and Library.CreatedWindow.Root.Visible
+
+		if visible then
+			if Library.AcrylicSupported then
 				Acrylic.Enable()
-			else
+			end
+			Library.CreatedWindow.AcrylicPaint.SetVisibility(true)
+		else
+			Library.CreatedWindow.AcrylicPaint.SetVisibility(false)
+			if Library.AcrylicSupported then
 				Acrylic.Disable()
 			end
 		end

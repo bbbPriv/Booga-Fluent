@@ -5,6 +5,7 @@ local Camera = game:GetService("Workspace").CurrentCamera
 local Root = script.Parent.Parent
 local Creator = require(Root.Modules.Creator)
 local Flipper = require(Root.Packages.Flipper)
+local SecureAssets = require(Root.Modules.SecureAssets)
 
 local New = Creator.New
 local Components = Root.Components
@@ -68,7 +69,7 @@ function Element:New(Idx, Config)
 	})
 
 	local DropdownIco = New("ImageLabel", {
-		Image = "rbxassetid://10709790948",
+		Image = SecureAssets:Get("rbxassetid://10709790948"),
 		Size = UDim2.fromOffset(16, 16),
 		AnchorPoint = Vector2.new(1, 0.5),
 		Position = UDim2.new(1, -8, 0.5, 0),
@@ -110,9 +111,9 @@ function Element:New(Idx, Config)
 		Size = UDim2.new(1, -5, 1, Dropdown.Searchable and -40 or -10),
 		Position = UDim2.fromOffset(5, Dropdown.Searchable and 40 or 5),
 		BackgroundTransparency = 1,
-		BottomImage = "rbxassetid://6889812791",
-		MidImage = "rbxassetid://6889812721",
-		TopImage = "rbxassetid://6276641225",
+		BottomImage = SecureAssets:Get("rbxassetid://6889812791"),
+		MidImage = SecureAssets:Get("rbxassetid://6889812721"),
+		TopImage = SecureAssets:Get("rbxassetid://6276641225"),
 		ScrollBarImageColor3 = Color3.fromRGB(255, 255, 255),
 		ScrollBarImageTransparency = 0.95,
 		ScrollBarThickness = 4,
@@ -140,7 +141,7 @@ function Element:New(Idx, Config)
 		}),
 		New("ImageLabel", {
 			BackgroundTransparency = 1,
-			Image = "http://www.roblox.com/asset/?id=5554236805",
+			Image = SecureAssets:Get("http://www.roblox.com/asset/?id=5554236805"),
 			ScaleType = Enum.ScaleType.Slice,
 			SliceCenter = Rect.new(23, 23, 277, 277),
 			Size = UDim2.fromScale(1, 1) + UDim2.fromOffset(30, 30),

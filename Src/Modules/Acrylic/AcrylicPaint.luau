@@ -1,6 +1,7 @@
 local Root = script.Parent.Parent.Parent
 local Creator = require(Root.Modules.Creator)
 local AcrylicBlur = require(script.Parent.AcrylicBlur)
+local SecureAssets = require(Root.Modules.SecureAssets)
 
 local New = Creator.New
 
@@ -14,7 +15,7 @@ return function(props)
 		BorderSizePixel = 0,
 	}, {
 		New("ImageLabel", {
-			Image = "rbxassetid://8992230677",
+			Image = SecureAssets:Get("rbxassetid://8992230677"),
 			ScaleType = "Slice",
 			SliceCenter = Rect.new(Vector2.new(99, 99), Vector2.new(99, 99)),
 			AnchorPoint = Vector2.new(0.5, 0.5),
@@ -60,7 +61,7 @@ return function(props)
 		}),
 
 		New("ImageLabel", {
-			Image = "rbxassetid://9968344105",
+			Image = SecureAssets:Get("rbxassetid://9968344105"),
 			ImageTransparency = 0.98,
 			ScaleType = Enum.ScaleType.Tile,
 			TileSize = UDim2.new(0, 128, 0, 128),
@@ -73,7 +74,7 @@ return function(props)
 		}),
 
 		New("ImageLabel", {
-			Image = "rbxassetid://9968344227",
+			Image = SecureAssets:Get("rbxassetid://9968344227"),
 			ImageTransparency = 0.9,
 			ScaleType = Enum.ScaleType.Tile,
 			TileSize = UDim2.new(0, 128, 0, 128),

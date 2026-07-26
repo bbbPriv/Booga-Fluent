@@ -1,6 +1,7 @@
 local TweenService, UserInputService = game:GetService("TweenService"), game:GetService("UserInputService")
 local Root = script.Parent.Parent
 local Creator = require(Root.Modules.Creator)
+local SecureAssets = require(Root.Modules.SecureAssets)
  
 local New = Creator.New
 local Components = Root.Components
@@ -30,7 +31,7 @@ function Element:New(Idx, Config)
 		AnchorPoint = Vector2.new(0, 0.5),
 		Size = UDim2.fromOffset(14, 14),
 		Position = UDim2.new(0, 2, 0.5, 0),
-		Image = "http://www.roblox.com/asset/?id=12266946128",
+		Image = SecureAssets:Get("http://www.roblox.com/asset/?id=12266946128"),
 		ImageTransparency = 0.5,
 		ThemeTag = {
 			ImageColor3 = "ToggleSlider",

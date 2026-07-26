@@ -6,9 +6,19 @@ local viewportPointToWorld, getOffset = unpack(require(script.Parent.Utils))
 local BlurFolder = nil
 
 local function getBlurFolder()
-	if not BlurFolder then
-		BlurFolder = Instance.new("Folder", game:GetService("Workspace").CurrentCamera)
+	local camera = game:GetService("Workspace").CurrentCamera
+
+	if BlurFolder then
+		local success = pcall(function()
+			BlurFolder.Parent = camera
+		end)
+
+		if success then
+			return BlurFolder
+		end
 	end
+
+	BlurFolder = Instance.new("Folder", camera)
 	return BlurFolder
 end
 
@@ -92,6 +102,8 @@ end
 return function(distance)
 	local Blur = {}
 	local onChange, model = createAcrylicBlur(distance)
+	local visible = true
+	local parent
 
 	local comp = Creator.New("Frame", {
 		BackgroundTransparency = 1,
@@ -107,13 +119,15 @@ return function(distance)
 	end)
 
 	Blur.AddParent = function(Parent)
+		parent = Parent
 		Creator.AddSignal(Parent:GetPropertyChangedSignal("Visible"), function()
-			Blur.SetVisibility(Parent.Visible)
+			model.Transparency = visible and Parent.Visible and 0.98 or 1
 		end)
 	end
 
 	Blur.SetVisibility = function(Value)
-		model.Transparency = Value and 0.98 or 1
+		visible = Value
+		model.Transparency = visible and (not parent or parent.Visible) and 0.98 or 1
 	end
 
 	Blur.Frame = comp

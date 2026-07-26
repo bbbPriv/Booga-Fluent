@@ -4,22 +4,49 @@ local Acrylic = {
 	AcrylicPaint = require(script.AcrylicPaint),
 }
 
-local initialized = false
 local baseEffect
 local depthOfFieldDefaults = {}
+local enabled = false
+
+local function createBaseEffect()
+	local effect = Instance.new("DepthOfFieldEffect")
+	effect.FarIntensity = 0
+	effect.InFocusRadius = 0.1
+	effect.NearIntensity = 1
+
+	return effect
+end
 
 function Acrylic.init()
-	if initialized then
+	if baseEffect then
 		return
 	end
 
-	baseEffect = Instance.new("DepthOfFieldEffect")
-	baseEffect.FarIntensity = 0
-	baseEffect.InFocusRadius = 0.1
-	baseEffect.NearIntensity = 1
+	baseEffect = createBaseEffect()
+end
+
+function Acrylic.Enable()
+	Acrylic.init()
+
+	if enabled then
+		local success = pcall(function()
+			baseEffect.Enabled = true
+			baseEffect.Parent = game:GetService("Lighting")
+		end)
+
+		if success then
+			return
+		end
+
+		baseEffect = createBaseEffect()
+		baseEffect.Parent = game:GetService("Lighting")
+		return
+	end
+
+	table.clear(depthOfFieldDefaults)
 
 	local function register(object)
-		if object:IsA("DepthOfFieldEffect") then
+		if object:IsA("DepthOfFieldEffect") and object ~= baseEffect then
 			depthOfFieldDefaults[object] = { enabled = object.Enabled }
 		end
 	end
@@ -34,32 +61,44 @@ function Acrylic.init()
 		end
 	end
 
-	initialized = true
-end
-
-function Acrylic.Enable()
-	Acrylic.init()
-
-	for _, effect in next, depthOfFieldDefaults do
-		effect.Enabled = false
+	for effect in next, depthOfFieldDefaults do
+		pcall(function()
+			effect.Enabled = false
+		end)
 	end
 
-	if baseEffect then
+	local success = pcall(function()
+		baseEffect.Enabled = true
+		baseEffect.Parent = game:GetService("Lighting")
+	end)
+
+	if not success then
+		baseEffect = createBaseEffect()
 		baseEffect.Parent = game:GetService("Lighting")
 	end
+
+	enabled = true
 end
 
 function Acrylic.Disable()
-	if not initialized then
+	if not baseEffect and not enabled then
 		return
 	end
 
-	for _, effect in next, depthOfFieldDefaults do
-		effect.Enabled = effect.enabled
+	enabled = false
+
+	for effect, defaults in next, depthOfFieldDefaults do
+		pcall(function()
+			effect.Enabled = defaults.enabled
+		end)
 	end
+	table.clear(depthOfFieldDefaults)
 
 	if baseEffect then
-		baseEffect.Parent = nil
+		pcall(function()
+			baseEffect:Destroy()
+		end)
+		baseEffect = nil
 	end
 end
 
